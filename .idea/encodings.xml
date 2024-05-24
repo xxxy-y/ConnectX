@@ -3,6 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/Connect-subject/Connect-subject-api/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Connect-subject/Connect-subject-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-mq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-mq/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Connect-subject/ConnectX-subject-common/src/main/java" charset="UTF-8" />

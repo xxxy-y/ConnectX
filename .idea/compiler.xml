@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ConnectX-subject-common" />
         <module name="ConnectX-subject-infra" />
+        <module name="ConnectX-subject-application-mq" />
+        <module name="ConnectX-subject-common" />
         <module name="Connect-subject-api" />
         <module name="ConnectX-subject-domain" />
         <module name="ConnectX-subject-starter" />
+        <module name="ConnectX-subject-application-controller" />
+        <module name="ConnectX-subject-application-job" />
         <module name="ConnectX-subject-application" />
       </profile>
     </annotationProcessing>

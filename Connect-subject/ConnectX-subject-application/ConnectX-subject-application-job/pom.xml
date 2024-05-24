@@ -7,9 +7,10 @@
         <groupId>cn.edu.tyut.connectx</groupId>
         <artifactId>Connect-subject</artifactId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>ConnectX-subject-domain</artifactId>
+    <artifactId>ConnectX-subject-application-job</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
