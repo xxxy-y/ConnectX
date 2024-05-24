@@ -37,12 +37,10 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
      * 新增数据
      *
      * @param subjectCategory 实例对象
-     * @return 实例对象
      */
     @Override
-    public SubjectCategory insert(SubjectCategory subjectCategory) {
+    public void insert(SubjectCategory subjectCategory) {
         this.subjectCategoryDao.insert(subjectCategory);
-        return subjectCategory;
     }
 
     /**

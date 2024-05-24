@@ -1,23 +1,50 @@
 spring:
   datasource:
+    dynamic:
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANFlHGwhLdhmxcsJV3ufiEtCY29K5PWoz0+JWrGEVQ0FB9cfgHvXRetimqzc1hK7funk5We0FB9ZQ82s11wEnEcCAwEAAQ==
+      primary: master
+      strict: false
+      datasource:
+        master:
+          username: ENC(Vyt/GMjkoUvtN48YOQCGLqN/YmGlG/AHUY6Yte/zALJOPDK9lGKpkaRX6zGhDmxKBWfNBgImG8skcdeFiZNysw==)
+          password: ENC(TIw2ac46508YEaHuJzn3jaUPc81aX9fx5l2x6YDF73hZub0X3DKzpSdEYBYN1Fd76qpJ+jaWRH3yWN0CpbB9lQ==)
+          url: ENC(t6oJyobqrvKKTtRb8I5EWn78jpsTioFXfnhITgGGQOF5M6POaO3J1PxOndjCx5i75oxWNKn1ywolsKSgaqGKOA==)
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          druid:
+            initial-size: 20
+            min-idle: 20
+            max-active: 100
+            max-wait: 60000
     druid:
-      username: root
-      password: 123456
-      url: jdbc:mysql://192.168.17.129:3306/ConnectX
+      username: ENC(Vyt/GMjkoUvtN48YOQCGLqN/YmGlG/AHUY6Yte/zALJOPDK9lGKpkaRX6zGhDmxKBWfNBgImG8skcdeFiZNysw==)
+      password: ENC(TIw2ac46508YEaHuJzn3jaUPc81aX9fx5l2x6YDF73hZub0X3DKzpSdEYBYN1Fd76qpJ+jaWRH3yWN0CpbB9lQ==)
+      url: ENC(t6oJyobqrvKKTtRb8I5EWn78jpsTioFXfnhITgGGQOF5M6POaO3J1PxOndjCx5i75oxWNKn1ywolsKSgaqGKOA==)
       driver-class-name: com.mysql.cj.jdbc.Driver
       initial-size: 20
       min-idle: 20
       max-active: 100
       max-wait: 60000
+      # 启用 Druid 的内置监控功能
       stat-view-servlet:
         enabled: true
+        # 设置监控页面的访问路径为 /druid/*
         url-pattern: /druid/*
+        # 设置访问监控页面所需的用户名为 admin
         login-username: admin
+        # 设置访问监控页面所需的密码为 123456
         login-password: 123456
       filter:
         stat:
+          # 启用 Druid 的统计过滤器，用于收集 SQL 执行的统计信息
           enabled: true
+          # 启用慢 SQL 日志记录。当 SQL 执行时间超过设定的阈值时，会记录这些 SQL 到日志中
           log-slow-sql: true
+          # 设置慢 SQL 的时间阈值，单位是毫秒。这里设置为 2000 毫秒，即 2 秒
           slow-sql-millis: 2000
         wall:
+          # 启用 Druid 的 SQL 防火墙过滤器，用于防御 SQL 注入攻击
           enabled: true
+        # 必须先开启config配置，才会读取connection-properties中配置的属性
+#        config:
+#          enabled: true
+#      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANFlHGwhLdhmxcsJV3ufiEtCY29K5PWoz0+JWrGEVQ0FB9cfgHvXRetimqzc1hK7funk5We0FB9ZQ82s11wEnEcCAwEAAQ==
