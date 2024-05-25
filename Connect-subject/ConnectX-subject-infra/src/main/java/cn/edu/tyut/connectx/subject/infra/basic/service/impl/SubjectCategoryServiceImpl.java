@@ -3,6 +3,8 @@ package cn.edu.tyut.connectx.subject.infra.basic.service.impl;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectCategory;
 import cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectCategoryDao;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectCategoryService;
+import com.alibaba.fastjson2.JSON;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
  * @author makejava
  * @since 2024-05-23 20:40:30
  */
+@Slf4j
 @Service("subjectCategoryService")
 public class SubjectCategoryServiceImpl implements SubjectCategoryService {
     private SubjectCategoryDao subjectCategoryDao;
@@ -40,6 +43,9 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
      */
     @Override
     public void insert(SubjectCategory subjectCategory) {
+        if (log.isInfoEnabled()) {
+            log.info("SubjectCategoryController.add.subjectCategory:{}", JSON.toJSONString(subjectCategory));
+        }
         this.subjectCategoryDao.insert(subjectCategory);
     }
 

@@ -47,4 +47,6 @@ spring:
         # 必须先开启config配置，才会读取connection-properties中配置的属性
 #        config:
 #          enabled: true
+logging:
+  config: classpath:log4j2-spring.xml
 #      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANFlHGwhLdhmxcsJV3ufiEtCY29K5PWoz0+JWrGEVQ0FB9cfgHvXRetimqzc1hK7funk5We0FB9ZQ82s11wEnEcCAwEAAQ==
