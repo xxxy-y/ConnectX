@@ -12,7 +12,6 @@ import java.util.List;
  * @since 2024-05-23 20:40:25
  */
 public interface SubjectCategoryDao {
-
     /**
      * 通过ID查询单条数据
      *
@@ -70,5 +69,11 @@ public interface SubjectCategoryDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 查询岗位大类
+     *
+     * @return 岗位大类列表
+     */
+    List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 }
 

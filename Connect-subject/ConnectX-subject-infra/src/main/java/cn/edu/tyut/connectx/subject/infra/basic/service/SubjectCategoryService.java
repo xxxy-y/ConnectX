@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.subject.infra.basic.service;
 
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectCategory;
 
+import java.util.List;
+
 /**
  * 题目分类(SubjectCategory)表服务接口
  *
@@ -41,4 +43,11 @@ public interface SubjectCategoryService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 查询岗位大类
+     *
+     * @param subjectCategory 岗位大类的数据
+     * @return 返回查询出来的数据
+     */
+    List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 }
