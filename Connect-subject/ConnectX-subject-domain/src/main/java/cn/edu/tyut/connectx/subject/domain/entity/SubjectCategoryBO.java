@@ -12,7 +12,6 @@ import java.io.Serializable;
  */
 @Data
 public class SubjectCategoryBO implements Serializable {
-    private static final long serialVersionUID = -97627370091196565L;
     /**
      * 主键
      */

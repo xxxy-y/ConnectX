@@ -21,6 +21,12 @@ import java.util.List;
 @Service
 public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainService {
     private SubjectCategoryService subjectCategoryService;
+    private SubjectCategoryConvert subjectCategoryConvert;
+
+    @Autowired
+    public void setSubjectConvert(SubjectCategoryConvert subjectCategoryConvert) {
+        this.subjectCategoryConvert = subjectCategoryConvert;
+    }
 
     @Autowired
     public void setSubjectCategoryService(SubjectCategoryService subjectCategoryService) {
@@ -30,9 +36,9 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Override
     public void add(SubjectCategoryBO subjectCategoryBo) {
         if (log.isInfoEnabled()) {
-            log.info("SubjectCategoryController.add.subjectCategoryBo:{}", JSON.toJSONString(subjectCategoryBo));
+            log.info("SubjectCategoryDomainServiceImpl.add.subjectCategoryBo:{}", JSON.toJSONString(subjectCategoryBo));
         }
-        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBo);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBo);
         subjectCategory.setIsDeleted(0);
         subjectCategoryService.insert(subjectCategory);
     }
@@ -40,10 +46,10 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Override
     public List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO) {
         // 在这一层进行业务性的修改
-        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
         List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
-        List<SubjectCategoryBO> subjectCategoryBOList = SubjectCategoryConvert.INSTANCE.subjectCategoryToSubjectCategoryBo(subjectCategoryList);
+        List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryConvert.convertSubjectCategoryListToSubjectCategoryBOList(subjectCategoryList);
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.queryPrimaryCategory.subjectCategoryBOList:{}", JSON.toJSONString(subjectCategoryBOList));
         }
@@ -52,14 +58,20 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
 
     @Override
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
-        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
+        if (log.isInfoEnabled()) {
+            log.info("SubjectCategoryController.update.subjectCategoryBO:{}", JSON.toJSONString(subjectCategoryBO));
+        }
         return subjectCategoryService.update(subjectCategory);
     }
 
     @Override
     public Boolean delete(SubjectCategoryBO subjectCategoryBO) {
-        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.DELETED.getCode());
+        if (log.isInfoEnabled()) {
+            log.info("SubjectCategoryController.delete.subjectCategoryBO:{}", JSON.toJSONString(subjectCategoryBO));
+        }
         return subjectCategoryService.delete(subjectCategory);
     }
 }
