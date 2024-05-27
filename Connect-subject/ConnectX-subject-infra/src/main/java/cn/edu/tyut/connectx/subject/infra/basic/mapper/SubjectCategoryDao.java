@@ -72,7 +72,8 @@ public interface SubjectCategoryDao {
     /**
      * 查询岗位大类
      *
-     * @return 岗位大类列表
+     * @param subjectCategory 岗位大类
+     * @return 查询列表
      */
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
 }

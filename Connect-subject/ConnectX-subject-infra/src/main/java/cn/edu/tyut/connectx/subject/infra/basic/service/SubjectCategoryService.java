@@ -31,9 +31,9 @@ public interface SubjectCategoryService {
      * 修改数据
      *
      * @param subjectCategory 实例对象
-     * @return 实例对象
+     * @return 是否更新成功
      */
-    SubjectCategory update(SubjectCategory subjectCategory);
+    Boolean update(SubjectCategory subjectCategory);
 
     /**
      * 通过主键删除数据
@@ -50,4 +50,11 @@ public interface SubjectCategoryService {
      * @return 返回查询出来的数据
      */
     List<SubjectCategory> queryCategory(SubjectCategory subjectCategory);
+
+    /**
+     * 删除分类（修改其中的is_delete）
+     * @param subjectCategory 需要修改的数据
+     * @return 删除是否成功
+     */
+    Boolean delete(SubjectCategory subjectCategory);
 }

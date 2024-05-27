@@ -19,7 +19,24 @@ public interface SubjectCategoryDomainService {
     /**
      * 查询岗位大类
      *
-     * @return SubjectCategoryBO
+     * @param subjectCategoryBO 传入的岗位
+     * @return 查询出来的信息
      */
     List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO);
+
+    /**
+     * 更新分类
+     *
+     * @param subjectCategoryBO 传入更新后的数据
+     * @return 是否更新成功
+     */
+    Boolean update(SubjectCategoryBO subjectCategoryBO);
+
+    /**
+     * 删除分类
+     *
+     * @param subjectCategoryBO 根据其中id删除分类
+     * @return 是否删除成功
+     */
+    Boolean delete(SubjectCategoryBO subjectCategoryBO);
 }

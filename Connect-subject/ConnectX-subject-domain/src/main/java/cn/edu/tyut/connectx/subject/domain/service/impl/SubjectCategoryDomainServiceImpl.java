@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.service.impl;
 
+import cn.edu.tyut.connectx.subject.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.SubjectCategoryConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectCategoryBO;
 import cn.edu.tyut.connectx.subject.domain.service.SubjectCategoryDomainService;
@@ -32,6 +33,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
             log.info("SubjectCategoryController.add.subjectCategoryBo:{}", JSON.toJSONString(subjectCategoryBo));
         }
         SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBo);
+        subjectCategory.setIsDeleted(0);
         subjectCategoryService.insert(subjectCategory);
     }
 
@@ -39,11 +41,25 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     public List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO) {
         // 在这一层进行业务性的修改
         SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        subjectCategory.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
         List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
         List<SubjectCategoryBO> subjectCategoryBOList = SubjectCategoryConvert.INSTANCE.subjectCategoryToSubjectCategoryBo(subjectCategoryList);
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.queryPrimaryCategory.subjectCategoryBOList:{}", JSON.toJSONString(subjectCategoryBOList));
         }
         return subjectCategoryBOList;
+    }
+
+    @Override
+    public Boolean update(SubjectCategoryBO subjectCategoryBO) {
+        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        return subjectCategoryService.update(subjectCategory);
+    }
+
+    @Override
+    public Boolean delete(SubjectCategoryBO subjectCategoryBO) {
+        SubjectCategory subjectCategory = SubjectCategoryConvert.INSTANCE.subjectCategoryBoToSubjectCategory(subjectCategoryBO);
+        subjectCategory.setIsDeleted(IsDeletedFlagEnum.DELETED.getCode());
+        return subjectCategoryService.delete(subjectCategory);
     }
 }

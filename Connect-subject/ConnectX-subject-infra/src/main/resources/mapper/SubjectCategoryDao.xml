@@ -175,11 +175,11 @@
     </update>
 
     <!--通过主键删除-->
-    <delete id="deleteById">
-        delete
-        from subject_category
+    <update id="deleteById">
+        update subject_category
+        set is_deleted = 1
         where id = #{id}
-    </delete>
+    </update>
 
     <select id="queryCategory" resultMap="SubjectCategoryMap">
         select id,
