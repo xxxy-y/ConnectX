@@ -53,10 +53,10 @@ public interface SubjectLabelService {
     Integer add(SubjectLabel subjectLabel);
 
     /**
-     * 根据分类id查询数据
+     * 查询分类下的标签
      *
-     * @param subjectLabel 分类id
-     * @return 查出来的数据
+     * @param categoryIdList 分类id列表
+     * @return 分类下的标签
      */
-    List<SubjectLabel> queryLabelByCategoryId(SubjectLabel subjectLabel);
+    List<SubjectLabel> batchQueryById(List<Long> categoryIdList);
 }

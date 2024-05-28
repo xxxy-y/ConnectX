@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectLabelDao">
+<mapper namespace="cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectMappingDao">
 
-    <resultMap type="cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectLabel" id="SubjectLabelMap">
+    <resultMap type="cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectMapping" id="SubjectMappingMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="labelName" column="label_name" jdbcType="VARCHAR"/>
+        <result property="subjectId" column="subject_id" jdbcType="INTEGER"/>
         <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
-        <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+        <result property="labelId" column="label_id" jdbcType="INTEGER"/>
         <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
         <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
         <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
@@ -15,37 +15,37 @@
     </resultMap>
 
     <!--查询单个-->
-    <select id="queryById" resultMap="SubjectLabelMap">
+    <select id="queryById" resultMap="SubjectMappingMap">
         select id,
-               label_name,
+               subject_id,
                category_id,
-               sort_num,
+               label_id,
                created_by,
                created_time,
                update_by,
                update_time,
                is_deleted
-        from subject_label
+        from subject_mapping
         where id = #{id}
     </select>
 
     <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="SubjectLabelMap">
+    <select id="queryAllByLimit" resultMap="SubjectMappingMap">
         select
-        id,label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted
-        from subject_label
+        id, subject_id, category_id, label_id, created_by, created_time, update_by, update_time, is_deleted
+        from subject_mapping
         <where>
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
             </if>
             <if test="categoryId != null">
                 and category_id = #{categoryId}
             </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
+            <if test="labelId != null">
+                and label_id = #{labelId}
             </if>
             <if test="createdBy != null and createdBy != ''">
                 and created_by = #{createdBy}
@@ -69,19 +69,55 @@
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)
-        from subject_label
+        from subject_mapping
         <where>
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
             </if>
             <if test="categoryId != null">
                 and category_id = #{categoryId}
             </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
+            <if test="labelId != null">
+                and label_id = #{labelId}
+            </if>
+            <if test="createdBy != null and createdBy != ''">
+                and created_by = #{createdBy}
+            </if>
+            <if test="createdTime != null">
+                and created_time = #{createdTime}
+            </if>
+            <if test="updateBy != null and updateBy != ''">
+                and update_by = #{updateBy}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryDistinctLabelId"
+            resultMap="SubjectMappingMap">
+        select distinct
+        label_id
+        from subject_mapping
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+            <if test="labelId != null">
+                and label_id = #{labelId}
             </if>
             <if test="createdBy != null and createdBy != ''">
                 and created_by = #{createdBy}
@@ -103,46 +139,53 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into subject_label(label_name, category_id, sort_num, created_by, created_time, update_by, update_time,
-                                  is_deleted)
-        values (#{labelName}, #{categoryId}, #{sortNum}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime},
+        insert into subject_mapping(subject_id, category_id, label_id, created_by, created_time, update_by, update_time,
+                                    is_deleted)
+        values (#{subjectId}, #{categoryId}, #{labelId}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime},
                 #{isDeleted})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into
-        subject_label(label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted)
+        insert into subject_mapping(subject_id, category_id, label_id, created_by, created_time, update_by, update_time,
+        is_deleted)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.labelName},#{entity.categoryId},#{entity.sortNum},#{entity.createdBy},#{entity.createdTime},#{entity.updateBy},#{entity.updateTime},#{entity.isDeleted})
+            (#{entity.subjectId}, #{entity.categoryId}, #{entity.labelId}, #{entity.createdBy}, #{entity.createdTime},
+            #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
         </foreach>
     </insert>
 
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into
-        subject_label(label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted)
+        insert into subject_mapping(subject_id, category_id, label_id, created_by, created_time, update_by, update_time,
+        is_deleted)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.labelName},#{entity.categoryId},#{entity.sortNum},#{entity.createdBy},#{entity.createdTime},#{entity.updateBy},#{entity.updateTime},#{entity.isDeleted})
+            (#{entity.subjectId}, #{entity.categoryId}, #{entity.labelId}, #{entity.createdBy}, #{entity.createdTime},
+            #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
         </foreach>
         on duplicate key update
-        label_name = values(label_name)category_id = values(category_id)sort_num = values(sort_num)created_by =
-        values(created_by)created_time = values(created_time)update_by = values(update_by)update_time =
-        values(update_time)is_deleted = values(is_deleted)
+        subject_id = values(subject_id),
+        category_id = values(category_id),
+        label_id = values(label_id),
+        created_by = values(created_by),
+        created_time = values(created_time),
+        update_by = values(update_by),
+        update_time = values(update_time),
+        is_deleted = values(is_deleted)
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update subject_label
+        update subject_mapping
         <set>
-            <if test="labelName != null and labelName != ''">
-                label_name = #{labelName},
+            <if test="subjectId != null">
+                subject_id = #{subjectId},
             </if>
             <if test="categoryId != null">
                 category_id = #{categoryId},
             </if>
-            <if test="sortNum != null">
-                sort_num = #{sortNum},
+            <if test="labelId != null">
+                label_id = #{labelId},
             </if>
             <if test="createdBy != null and createdBy != ''">
                 created_by = #{createdBy},
@@ -166,55 +209,9 @@
     <!--通过主键删除-->
     <delete id="deleteById">
         delete
-        from subject_label
+        from subject_mapping
         where id = #{id}
     </delete>
-
-    <select id="queryLabelByCategoryId" resultMap="SubjectLabelMap">
-        select
-        id,label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted
-        from subject_label
-        <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
-            </if>
-            <if test="categoryId != null">
-                and category_id = #{categoryId}
-            </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
-            </if>
-            <if test="createdBy != null and createdBy != ''">
-                and created_by = #{createdBy}
-            </if>
-            <if test="createdTime != null">
-                and created_time = #{createdTime}
-            </if>
-            <if test="updateBy != null and updateBy != ''">
-                and update_by = #{updateBy}
-            </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
-            <if test="isDeleted != null">
-                and is_deleted = #{isDeleted}
-            </if>
-        </where>
-    </select>
-
-    <select id="batchQueryById" resultMap="SubjectLabelMap">
-        select
-        id,label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted
-        from subject_label
-        where id in
-        <foreach open="(" close=")" collection="list" item="id" separator=",">
-            #{id}
-        </foreach>
-        and is_deleted = 0
-    </select>
 
 </mapper>
 

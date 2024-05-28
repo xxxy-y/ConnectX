@@ -4,34 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:分类模块开发">
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectLabelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectLabelDTOConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectLabelDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectLabelConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectLabelBO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectLabelDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectLabelDomainServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectLabel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectLabelDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectLabelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectLabelServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectLabelDao.xml" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:标签基础模块开发">
+      <change afterPath="$PROJECT_DIR$/.idea/mybatisx/templates.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectMappingDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectMappingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectMappingServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectMappingDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectCategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDTOConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDTOConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectCategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectCategoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-common/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectCategoryConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectCategoryConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectCategoryBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectCategoryBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectCategory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectLabelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectLabelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDTOConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDtoConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectLabelDTOConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectLabelDtoConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectLabelConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectLabelConvert.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectLabelDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectLabelDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectLabelDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectLabelDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectLabelDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectLabelDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectLabelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectLabelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectLabelServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectLabelServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectLabelDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectLabelDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,36 +74,36 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.DruidEncryptUtil.executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SubjectApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/code/ConnectX&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.2354049&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.31954023&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DruidEncryptUtil.executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SubjectApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/code/ConnectX",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.2354049",
+    "project.structure.side.proportion": "0.31954023",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.edu.tyut.connectx.subject.application.convert" />
@@ -196,7 +188,9 @@
       <workItem from="1716726274855" duration="9213000" />
       <workItem from="1716772976129" duration="12028000" />
       <workItem from="1716798907789" duration="3799000" />
-      <workItem from="1716802738269" duration="8447000" />
+      <workItem from="1716802738269" duration="8478000" />
+      <workItem from="1716816480755" duration="274000" />
+      <workItem from="1716876442909" duration="10823000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -246,7 +240,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716788790511</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat:标签基础模块开发">
+      <option name="closed" value="true" />
+      <created>1716815790120</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1716815790120</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +261,8 @@
     <MESSAGE value="使用guava依赖中的Preconditions来进行参数校验&#10;log4j2的日志集成（其中使用了日志优化）" />
     <MESSAGE value="根据岗位查询分类接口开发" />
     <MESSAGE value="feat:分类模块开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:分类模块开发" />
+    <MESSAGE value="feat:标签基础模块开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:标签基础模块开发" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

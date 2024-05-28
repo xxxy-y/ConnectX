@@ -18,7 +18,7 @@ public interface SubjectLabelConvert {
      * @param subjectLabelBO BO
      * @return DO
      */
-    SubjectLabel convertSubjectLabelBOToSubjectLabel(SubjectLabelBO subjectLabelBO);
+    SubjectLabel convertSubjectLabelBoToSubjectLabel(SubjectLabelBO subjectLabelBO);
 
     /**
      * 将DO转换为BO
@@ -26,5 +26,13 @@ public interface SubjectLabelConvert {
      * @param subjectLabel DO
      * @return BO
      */
-    List<SubjectLabelBO> convertSubjectLabelToSubjectLabelBO(List<SubjectLabel> subjectLabel);
+    List<SubjectLabelBO> convertSubjectLabelListToSubjectLabelBoList(List<SubjectLabel> subjectLabel);
+
+    /**
+     * 将DO转换为BO
+     *
+     * @param subjectLabel 传入的DO
+     * @return 返回的BO
+     */
+    SubjectLabelBO convertSubjectLabelToSubjectLabelBo(SubjectLabel subjectLabel);
 }

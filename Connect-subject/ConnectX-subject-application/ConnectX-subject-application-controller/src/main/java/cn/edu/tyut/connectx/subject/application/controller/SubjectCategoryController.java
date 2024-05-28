@@ -1,6 +1,6 @@
 package cn.edu.tyut.connectx.subject.application.controller;
 
-import cn.edu.tyut.connectx.subject.application.convert.SubjectCategoryDTOConvert;
+import cn.edu.tyut.connectx.subject.application.convert.SubjectCategoryDtoConvert;
 import cn.edu.tyut.connectx.subject.application.dto.SubjectCategoryDTO;
 import cn.edu.tyut.connectx.subject.common.entity.Result;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectCategoryBO;
@@ -24,11 +24,11 @@ import java.util.List;
 @RequestMapping("/subject/category")
 public class SubjectCategoryController {
     private SubjectCategoryDomainService subjectCategoryDomainService;
-    private SubjectCategoryDTOConvert subjectCategoryDTOConvert;
+    private SubjectCategoryDtoConvert subjectCategoryDtoConvert;
 
     @Autowired
-    public void setSubjectCategoryDTOConvert(SubjectCategoryDTOConvert subjectCategoryDTOConvert) {
-        this.subjectCategoryDTOConvert = subjectCategoryDTOConvert;
+    public void setSubjectCategoryDtoConvert(SubjectCategoryDtoConvert subjectCategoryDtoConvert) {
+        this.subjectCategoryDtoConvert = subjectCategoryDtoConvert;
     }
 
     @Autowired
@@ -46,7 +46,7 @@ public class SubjectCategoryController {
             Preconditions.checkNotNull(subjectCategoryDTO.getCategoryType(), "分类类型不能为空");
             Preconditions.checkArgument(!StringUtils.isBlank(subjectCategoryDTO.getCategoryName()), "分类名称不能为空");
             Preconditions.checkNotNull(subjectCategoryDTO.getParentId(), "父类ID不能为空");
-            SubjectCategoryBO subjectCategoryBO = subjectCategoryDTOConvert.convertSubjectCategoryDTOToSubjectCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
             subjectCategoryDomainService.add(subjectCategoryBO);
             return Result.ok(true);
         } catch (Exception e) {
@@ -58,9 +58,9 @@ public class SubjectCategoryController {
     @GetMapping("/queryPrimaryCategory")
     public @NotNull Result<List<SubjectCategoryDTO>> queryPrimaryCategory(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
         try {
-            SubjectCategoryBO subjectCategoryBO = subjectCategoryDTOConvert.convertSubjectCategoryDTOToSubjectCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
             List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryDomainService.queryCategory(subjectCategoryBO);
-            List<SubjectCategoryDTO> subjectCategoryDTOList = subjectCategoryDTOConvert.convertSubjectCategoryBOListToSubjectCategoryDTOList(subjectCategoryBOList);
+            List<SubjectCategoryDTO> subjectCategoryDTOList = subjectCategoryDtoConvert.convertSubjectCategoryBoListToSubjectCategoryDtoList(subjectCategoryBOList);
             return Result.ok(subjectCategoryDTOList);
         } catch (Exception e) {
             log.error("subjectCategoryController.queryPrimaryCategory.error: {}", e.getMessage());
@@ -75,9 +75,9 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.queryCategoryByPrimary.subjectCategoryDTO:{}", JSON.toJSONString(subjectCategoryDTO));
             }
             Preconditions.checkNotNull(subjectCategoryDTO.getParentId(), "分类ID不能为空");
-            SubjectCategoryBO subjectCategoryBO = subjectCategoryDTOConvert.convertSubjectCategoryDTOToSubjectCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
             List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryDomainService.queryCategory(subjectCategoryBO);
-            List<SubjectCategoryDTO> subjectCategoryDTOList = subjectCategoryDTOConvert.convertSubjectCategoryBOListToSubjectCategoryDTOList(subjectCategoryBOList);
+            List<SubjectCategoryDTO> subjectCategoryDTOList = subjectCategoryDtoConvert.convertSubjectCategoryBoListToSubjectCategoryDtoList(subjectCategoryBOList);
             return Result.ok(subjectCategoryDTOList);
         } catch (Exception e) {
             log.error("subjectCategoryController.queryCategoryByPrimary.error: {}", e.getMessage());
@@ -98,7 +98,7 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.update.subjectCategoryDTO:{}", JSON.toJSONString(subjectCategoryDTO));
             }
             Preconditions.checkNotNull(subjectCategoryDTO.getId(), "ID不能为空");
-            SubjectCategoryBO subjectCategoryBO = subjectCategoryDTOConvert.convertSubjectCategoryDTOToSubjectCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.update(subjectCategoryBO);
             return Result.ok(result);
         } catch (Exception e) {
@@ -120,7 +120,7 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.delete.subjectCategoryDTO:{}", JSON.toJSONString(subjectCategoryDTO));
             }
             Preconditions.checkNotNull(subjectCategoryDTO.getId(), "ID不能为空");
-            SubjectCategoryBO subjectCategoryBO = subjectCategoryDTOConvert.convertSubjectCategoryDTOToSubjectCategoryBO(subjectCategoryDTO);
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
             Boolean result = subjectCategoryDomainService.delete(subjectCategoryBO);
             return Result.ok(result);
         } catch (Exception e) {

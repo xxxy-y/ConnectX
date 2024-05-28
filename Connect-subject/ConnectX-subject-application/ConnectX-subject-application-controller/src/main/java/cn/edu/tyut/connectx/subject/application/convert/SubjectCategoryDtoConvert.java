@@ -11,14 +11,14 @@ import java.util.List;
  * @DATE 2024/5/24
  */
 @Mapper(componentModel = "spring")
-public interface SubjectCategoryDTOConvert {
+public interface SubjectCategoryDtoConvert {
     /**
      * 将 SubjectCategoryBO 对象转换为 SubjectCategoryDTO
      *
      * @param subjectCategoryBOList 传入的 BOList 对象
      * @return 转换后的 SubjectCategoryDTO 列表
      */
-    List<SubjectCategoryDTO> convertSubjectCategoryBOListToSubjectCategoryDTOList(List<SubjectCategoryBO> subjectCategoryBOList);
+    List<SubjectCategoryDTO> convertSubjectCategoryBoListToSubjectCategoryDtoList(List<SubjectCategoryBO> subjectCategoryBOList);
 
     /**
      * 将 SubjectCategoryDTO 转换为 SubjectCategoryBO
@@ -26,5 +26,5 @@ public interface SubjectCategoryDTOConvert {
      * @param subjectCategoryDTO 传入的DTO对象
      * @return 转换后的BO对象
      */
-    SubjectCategoryBO convertSubjectCategoryDTOToSubjectCategoryBO(SubjectCategoryDTO subjectCategoryDTO);
+    SubjectCategoryBO convertSubjectCategoryDtoToSubjectCategoryBo(SubjectCategoryDTO subjectCategoryDTO);
 }

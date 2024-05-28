@@ -5,13 +5,19 @@ import cn.edu.tyut.connectx.subject.domain.convert.SubjectLabelConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectLabelBO;
 import cn.edu.tyut.connectx.subject.domain.service.SubjectLabelDomainService;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectLabel;
+import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectMapping;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectLabelService;
+import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectMappingService;
 import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author 吴庆涛
@@ -22,6 +28,12 @@ import java.util.List;
 public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService {
     private SubjectLabelService subjectLabelService;
     private SubjectLabelConvert subjectLabelConvert;
+    private SubjectMappingService subjectMappingService;
+
+    @Autowired
+    public void setSubjectMappingService(SubjectMappingService subjectMappingService) {
+        this.subjectMappingService = subjectMappingService;
+    }
 
     @Autowired
     public void setSubjectLabelConvert(SubjectLabelConvert subjectLabelConvert) {
@@ -38,7 +50,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         if (log.isInfoEnabled()) {
             log.info("SubjectLabelDomainServiceImpl.add.subjectLabelBO:{}", JSON.toJSONString(subjectLabelBO));
         }
-        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBOToSubjectLabel(subjectLabelBO);
+        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBoToSubjectLabel(subjectLabelBO);
         subjectLabel.setIsDeleted(0);
         return subjectLabelService.add(subjectLabel);
     }
@@ -48,7 +60,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         if (log.isInfoEnabled()) {
             log.info("SubjectLabelDomainServiceImpl.update.subjectLabelBO:{}", JSON.toJSONString(subjectLabelBO));
         }
-        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBOToSubjectLabel(subjectLabelBO);
+        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBoToSubjectLabel(subjectLabelBO);
         return subjectLabelService.update(subjectLabel);
     }
 
@@ -57,19 +69,23 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         if (log.isInfoEnabled()) {
             log.info("SubjectLabelDomainServiceImpl.delete.subjectLabelBO:{}", JSON.toJSONString(subjectLabelBO));
         }
-        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBOToSubjectLabel(subjectLabelBO);
+        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBoToSubjectLabel(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeletedFlagEnum.DELETED.getCode());
         return subjectLabelService.update(subjectLabel);
     }
 
     @Override
-    public List<SubjectLabelBO> queryLabelByCategoryId(SubjectLabelBO subjectLabelBO) {
-        SubjectLabel subjectLabel = subjectLabelConvert.convertSubjectLabelBOToSubjectLabel(subjectLabelBO);
-        subjectLabel.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
-        List<SubjectLabel> subjectLabelList = subjectLabelService.queryLabelByCategoryId(subjectLabel);
-        if (log.isInfoEnabled()) {
-            log.info("SubjectLabelDomainServiceImpl.queryLabelByCategoryId.subjectLabelList:{}", JSON.toJSONString(subjectLabelList));
+    public List<SubjectLabelBO> queryLabelByCategoryId(@NotNull SubjectLabelBO subjectLabelBO) {
+        Long categoryId = subjectLabelBO.getCategoryId();
+        SubjectMapping subjectMapping = new SubjectMapping();
+        subjectMapping.setCategoryId(categoryId);
+        subjectMapping.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        List<SubjectMapping> mappingList = subjectMappingService.queryLabelId(subjectMapping);
+        if (CollectionUtils.isEmpty(mappingList)) {
+            return Collections.emptyList();
         }
-        return subjectLabelConvert.convertSubjectLabelToSubjectLabelBO(subjectLabelList);
+        List<Long> categoryIdList = mappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
+        List<SubjectLabel> subjectLabelList = subjectLabelService.batchQueryById(categoryIdList);
+        return subjectLabelConvert.convertSubjectLabelListToSubjectLabelBoList(subjectLabelList);
     }
 }
