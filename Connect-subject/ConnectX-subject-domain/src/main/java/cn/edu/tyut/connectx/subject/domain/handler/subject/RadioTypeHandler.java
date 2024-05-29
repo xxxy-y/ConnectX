@@ -5,6 +5,7 @@ import cn.edu.tyut.connectx.subject.domain.convert.RadioSubjectConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectRadio;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectRadioService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,7 +39,7 @@ public class RadioTypeHandler implements SubjectTypeHandler {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int add(SubjectInfoBO subjectInfoBo) {
+    public int add(@NotNull SubjectInfoBO subjectInfoBo) {
         // TODO 在这里可以进行一些单选题的特殊校验
         List<SubjectRadio> subjectRadioList = new ArrayList<>();
         subjectInfoBo.getOptionList().forEach(option -> {
