@@ -51,4 +51,12 @@ public interface SubjectMappingService {
      * @return 返回查询结果
      */
     List<SubjectMapping> queryLabelId(SubjectMapping subjectMapping);
+
+    /**
+     * 批量新增SubjectMapping关系
+     *
+     * @param subjectMappingList 传入的SubjectMapping
+     * @return 受影响行数
+     */
+    int batchInsert(List<SubjectMapping> subjectMappingList);
 }
