@@ -120,11 +120,11 @@
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
         insert into subject_multiple(subject_id, option_type, option_content, is_correct, created_by, created_time,
-        update_by, update_time, is_deleted)
+        update_by, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.subjectId}, #{entity.optionType}, #{entity.optionContent}, #{entity.isCorrect},
-            #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+            #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime})
         </foreach>
     </insert>
 

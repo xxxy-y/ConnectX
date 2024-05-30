@@ -70,5 +70,30 @@ public interface SubjectInfoDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 查询数据条数
+     *
+     * @param subjectInfo subjectInfo
+     * @param categoryId  categoryId
+     * @param labelId     labelId
+     * @return 返回条数
+     */
+    int countByCondition(@Param("subjectInfo") SubjectInfo subjectInfo,
+                         @Param("categoryId") Long categoryId,
+                         @Param("labelId") Long labelId);
+
+    /**
+     * 查询当前页数据
+     *
+     * @param subjectInfo 1
+     * @param categoryId  2
+     * @param labelId     3
+     * @param start       4
+     * @param pageSize    5
+     * @return 返回当前页数据
+     */
+    List<SubjectInfo> queryPage(
+            @Param("subjectInfo") SubjectInfo subjectInfo, @Param("categoryId") Long categoryId,
+            @Param("labelId") Long labelId, @Param("start") int start, @Param("pageSize") Integer pageSize);
 }
 

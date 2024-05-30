@@ -100,11 +100,11 @@
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted)
+        insert into subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.subjectId}, #{entity.isCorrect}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy},
-            #{entity.updateTime}, #{entity.isDeleted})
+            #{entity.updateTime})
         </foreach>
     </insert>
 

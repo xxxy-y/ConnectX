@@ -3,10 +3,12 @@ package cn.edu.tyut.connectx.subject.application.controller;
 import cn.edu.tyut.connectx.subject.application.convert.SubjectAnswerDtoConvert;
 import cn.edu.tyut.connectx.subject.application.convert.SubjectInfoDtoConvert;
 import cn.edu.tyut.connectx.subject.application.dto.SubjectInfoDTO;
+import cn.edu.tyut.connectx.subject.common.entity.PageResult;
 import cn.edu.tyut.connectx.subject.common.entity.Result;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 import cn.edu.tyut.connectx.subject.domain.service.SubjectInfoDomainService;
+import com.alibaba.fastjson2.JSON;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +51,7 @@ public class SubjectController {
 
     @PostMapping("/add")
     public Result<Object> add(@RequestBody SubjectInfoDTO subjectInfoDTO) {
-        try{
+        try {
             if (log.isInfoEnabled()) {
                 log.info("subject.add.subjectInfoDTO:{}", subjectInfoDTO);
             }
@@ -68,6 +70,23 @@ public class SubjectController {
         } catch (Exception e) {
             log.error("SubjectController.add.subjectInfoDTO: {}", subjectInfoDTO);
             return Result.fail("新增题目失败");
+        }
+    }
+
+    @PostMapping("/getSubjectPage")
+    public Result<Object> getSubjectPage(@RequestBody SubjectInfoDTO subjectInfoDTO) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("SubjectController.getSubjectPage.subjectInfoDTO:{}", JSON.toJSONString(subjectInfoDTO));
+            }
+            Preconditions.checkNotNull(subjectInfoDTO.getCategoryId(), "分类ID不能为空");
+            Preconditions.checkNotNull(subjectInfoDTO.getLabelId(), "标签ID不能为空");
+            SubjectInfoBO subjectInfoBO = subjectInfoDtoConvert.convertSubjectInfoDtoToSubjectInfoBo(subjectInfoDTO);
+            PageResult<SubjectInfoBO> subjectInfoBoPageResult = subjectInfoDomainService.getSubjectPage(subjectInfoBO);
+            return Result.ok(subjectInfoBoPageResult);
+        } catch (Exception e) {
+            log.error("SubjectController.getSubjectPage.error: {}", e.getMessage());
+            return Result.fail("分页查询失败");
         }
     }
 }

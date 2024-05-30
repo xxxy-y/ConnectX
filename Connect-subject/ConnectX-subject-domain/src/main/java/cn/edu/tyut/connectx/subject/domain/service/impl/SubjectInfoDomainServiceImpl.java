@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.service.impl;
 
+import cn.edu.tyut.connectx.subject.common.entity.PageResult;
 import cn.edu.tyut.connectx.subject.domain.convert.SubjectInfoConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 import cn.edu.tyut.connectx.subject.domain.handler.subject.SubjectTypeHandler;
@@ -67,6 +68,33 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         List<SubjectMapping> subjectMappingList = getSubjectMappingList(subjectInfoBO);
         int add2 = subjectMappingService.batchInsert(subjectMappingList);
         return add > 0 && insert > 0 && add2 > 0;
+    }
+
+    /**
+     * 分页查询
+     *
+     * @param subjectInfoBO 传入的Bo
+     * @return 查询结果
+     */
+    @Override
+    public PageResult<SubjectInfoBO> getSubjectPage(@NotNull SubjectInfoBO subjectInfoBO) {
+        PageResult<SubjectInfoBO> pageResult = new PageResult<>();
+        pageResult.setPageNo(subjectInfoBO.getPageNo());
+        pageResult.setPageSize(subjectInfoBO.getPageSize());
+        int start = (subjectInfoBO.getPageNo() - 1) * subjectInfoBO.getPageSize();
+        SubjectInfo subjectInfo = subjectInfoConvert.convertSubjectInfoBoToSubjectInfo(subjectInfoBO);
+        // TODO 这样做不要污染subjectInfo实体类，但是需要传入条件，条件太多就不行了，如果不想传入过多的条件
+        //  ，便会污染SubjectInfo类，之后可以使用ES来解决！
+        int count = subjectInfoService.countByCondition(subjectInfo, subjectInfoBO.getCategoryId(), subjectInfoBO.getLabelId());
+        if (count == 0) {
+            return pageResult;
+        }
+        List<SubjectInfo> subjectInfoList = subjectInfoService.queryPage(subjectInfo,
+                subjectInfoBO.getCategoryId(), subjectInfoBO.getLabelId(), start, subjectInfoBO.getPageSize());
+        List<SubjectInfoBO> subjectInfoBOList = subjectInfoConvert.convertSubjectInfoListToSubjectInfoBoList(subjectInfoList);
+        pageResult.setTotal(count);
+        pageResult.setResult(subjectInfoBOList);
+        return pageResult;
     }
 
     private @NotNull List<SubjectMapping> getSubjectMappingList(@NotNull SubjectInfoBO subjectInfoBO) {

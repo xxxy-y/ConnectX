@@ -1,6 +1,8 @@
 package cn.edu.tyut.connectx.subject.domain.entity;
 
+import cn.edu.tyut.connectx.subject.common.entity.PageInfo;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +13,9 @@ import java.util.List;
  * @author makejava
  * @since 2024-05-28 17:34:42
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class SubjectInfoBO implements Serializable {
+public class SubjectInfoBO extends PageInfo implements Serializable {
     /**
      * 主键
      */
@@ -57,5 +60,9 @@ public class SubjectInfoBO implements Serializable {
      * 答案选项
      */
     private List<SubjectAnswerBO> optionList;
+
+    private Long categoryId;
+
+    private Long labelId;
 }
 

@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.service;
 
+import cn.edu.tyut.connectx.subject.common.entity.PageResult;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 
 /**
@@ -14,4 +15,12 @@ public interface SubjectInfoDomainService {
      * @return 是否新增成功
      */
     Boolean add(SubjectInfoBO subjectInfoBO);
+
+    /**
+     * 分页查询题目详情
+     *
+     * @param subjectInfoBO 传入的Bo
+     * @return 返回查询结果
+     */
+    PageResult<SubjectInfoBO> getSubjectPage(SubjectInfoBO subjectInfoBO);
 }

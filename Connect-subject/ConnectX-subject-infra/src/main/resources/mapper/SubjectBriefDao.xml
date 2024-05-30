@@ -101,12 +101,11 @@
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into subject_brief(subject_id, subject_answer, created_by, created_time, update_by, update_time,
-        is_deleted)
+        insert into subject_brief(subject_id, subject_answer, created_by, created_time, update_by, update_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.subjectId}, #{entity.subjectAnswer}, #{entity.createdBy}, #{entity.createdTime},
-            #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+            #{entity.updateBy}, #{entity.updateTime})
         </foreach>
     </insert>
 

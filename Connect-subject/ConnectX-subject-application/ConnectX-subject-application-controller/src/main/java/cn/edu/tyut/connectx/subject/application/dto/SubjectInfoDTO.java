@@ -1,6 +1,8 @@
 package cn.edu.tyut.connectx.subject.application.dto;
 
+import cn.edu.tyut.connectx.subject.common.entity.PageInfo;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,8 +13,9 @@ import java.util.List;
  * @author makejava
  * @since 2024-05-28 17:34:42
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class SubjectInfoDTO implements Serializable {
+public class SubjectInfoDTO extends PageInfo implements Serializable {
     /**
      * 主键
      */
@@ -57,5 +60,9 @@ public class SubjectInfoDTO implements Serializable {
      * 答案选项
      */
     private List<SubjectAnswerDTO> optionList;
+
+    private Long labelId;
+
+    private Long categoryId;
 }
 
