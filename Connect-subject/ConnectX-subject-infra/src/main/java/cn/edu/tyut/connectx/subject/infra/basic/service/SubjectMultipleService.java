@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.subject.infra.basic.service;
 
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectMultiple;
 
+import java.util.List;
+
 /**
  * 多选题信息表(SubjectMultiple)表服务接口
  *
@@ -42,4 +44,10 @@ public interface SubjectMultipleService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 批量插入
+     * @param multipleList 插入的批量
+     * @return 受影响行数
+     */
+    int batchInsert(List<SubjectMultiple> multipleList);
 }

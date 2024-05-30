@@ -43,7 +43,7 @@ public class RadioTypeHandler implements SubjectTypeHandler {
         // TODO 在这里可以进行一些单选题的特殊校验
         List<SubjectRadio> subjectRadioList = new ArrayList<>();
         subjectInfoBo.getOptionList().forEach(option -> {
-            SubjectRadio subjectRadio = radioSubjectConvert.convertSubjectInfoBoToSubjectRadio(option);
+            SubjectRadio subjectRadio = radioSubjectConvert.convertSubjectAnswerBoToSubjectRadio(option);
             subjectRadio.setSubjectId(subjectInfoBo.getId());
             subjectRadioList.add(subjectRadio);
         });

@@ -16,5 +16,5 @@ public interface RadioSubjectConvert {
      * @param subjectAnswerBO BO
      * @return Radio
      */
-    SubjectRadio convertSubjectInfoBoToSubjectRadio(SubjectAnswerBO subjectAnswerBO);
+    SubjectRadio convertSubjectAnswerBoToSubjectRadio(SubjectAnswerBO subjectAnswerBO);
 }

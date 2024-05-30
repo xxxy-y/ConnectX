@@ -6,6 +6,7 @@ import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectMultipleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 多选题信息表(SubjectMultiple)表服务实现类
@@ -62,5 +63,10 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
     @Override
     public boolean deleteById(Long id) {
         return this.subjectMultipleDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public int batchInsert(List<SubjectMultiple> multipleList) {
+        return subjectMultipleDao.insertBatch(multipleList);
     }
 }

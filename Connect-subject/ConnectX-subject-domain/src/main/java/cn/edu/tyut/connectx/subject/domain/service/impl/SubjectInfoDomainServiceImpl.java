@@ -59,6 +59,7 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         // 向SubjectInfo表中插入数据
         SubjectInfo subjectInfo = subjectInfoConvert.convertSubjectInfoBoToSubjectInfo(subjectInfoBO);
         int insert = subjectInfoService.insert(subjectInfo);
+        subjectInfoBO.setId(subjectInfo.getId());
         // 向题目答案表（Radio、Multiple、Judge、Brief表）中插入数据，使用的是工厂+策略模式
         Integer subjectType = subjectInfoBO.getSubjectType();
         SubjectTypeHandler handler = subjectTypeHandlerFactory.getHandler(subjectType);

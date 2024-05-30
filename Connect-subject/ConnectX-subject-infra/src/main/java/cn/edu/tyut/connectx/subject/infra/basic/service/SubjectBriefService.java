@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.subject.infra.basic.service;
 
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectBrief;
 
+import java.util.List;
+
 /**
  * 简答题(SubjectBrief)表服务接口
  *
@@ -42,4 +44,11 @@ public interface SubjectBriefService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 批量插入
+     *
+     * @param subjectBriefList 列表
+     * @return 受影响行数
+     */
+    int batchInsert(List<SubjectBrief> subjectBriefList);
 }
