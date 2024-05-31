@@ -69,4 +69,14 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
     public int batchInsert(List<SubjectMultiple> multipleList) {
         return subjectMultipleDao.insertBatch(multipleList);
     }
+
+    @Override
+    public List<SubjectMultiple> queryBySubjectId(Long subjectId) {
+        return subjectMultipleDao.queryBySubjectId(subjectId);
+    }
+
+    @Override
+    public List<String> queryBySubjectIdCorrect(Long subjectId) {
+        return subjectMultipleDao.queryBySubjectIdCorrect(subjectId);
+    }
 }

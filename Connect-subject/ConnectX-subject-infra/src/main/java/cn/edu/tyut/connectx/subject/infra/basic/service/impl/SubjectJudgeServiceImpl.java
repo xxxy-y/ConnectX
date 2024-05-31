@@ -31,7 +31,6 @@ public class SubjectJudgeServiceImpl implements SubjectJudgeService {
     }
 
 
-
     /**
      * 新增数据
      *
@@ -39,9 +38,8 @@ public class SubjectJudgeServiceImpl implements SubjectJudgeService {
      * @return 实例对象
      */
     @Override
-    public SubjectJudge insert(SubjectJudge subjectJudge) {
-        this.subjectJudgeDao.insert(subjectJudge);
-        return subjectJudge;
+    public int insert(SubjectJudge subjectJudge) {
+        return this.subjectJudgeDao.insert(subjectJudge);
     }
 
     /**

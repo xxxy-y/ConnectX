@@ -1,7 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,7 +17,6 @@ import java.util.Map;
  * @Author 吴庆涛
  * @DATE 2024/5/29
  */
-@Slf4j
 @Component
 public class SubjectTypeHandlerFactory implements InitializingBean {
     private final Map<SubjectInfoTypeEnum, SubjectTypeHandler> handlerMap = new HashMap<>();
@@ -42,7 +40,6 @@ public class SubjectTypeHandlerFactory implements InitializingBean {
      */
     public SubjectTypeHandler getHandler(int subjectType) {
         SubjectInfoTypeEnum subjectInfoTypeEnum = SubjectInfoTypeEnum.getByCode(subjectType);
-        log.error("subjectTypeHandlerList: {}", subjectTypeHandlerList);
         return handlerMap.get(subjectInfoTypeEnum);
     }
 

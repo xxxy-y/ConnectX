@@ -70,5 +70,12 @@ public interface SubjectBriefDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 根据subjectId来查询答案
+     *
+     * @param subjectId 传入的subjectId
+     * @return 查询到的与之对应的答案
+     */
+    SubjectBrief queryBySubjectId(long subjectId);
 }
 

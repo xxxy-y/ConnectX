@@ -23,4 +23,12 @@ public interface SubjectInfoDomainService {
      * @return 返回查询结果
      */
     PageResult<SubjectInfoBO> getSubjectPage(SubjectInfoBO subjectInfoBO);
+
+    /**
+     * 查询题目信息
+     *
+     * @param subjectInfoBO 其中包含提供的信息
+     * @return 返回查询到的结果
+     */
+    SubjectInfoBO querySubjectInfo(SubjectInfoBO subjectInfoBO);
 }

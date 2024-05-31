@@ -86,4 +86,15 @@ public class SubjectMappingServiceImpl implements SubjectMappingService {
     public int batchInsert(List<SubjectMapping> subjectMappingList) {
         return subjectMappingDao.insertBatch(subjectMappingList);
     }
+
+    /**
+     * 在mapping表中根据subjectId查询数据
+     *
+     * @param id 传入的subjectId
+     * @return 查询到的数据
+     */
+    @Override
+    public List<SubjectMapping> queryBySubjectId(Long id) {
+        return subjectMappingDao.queryBySubjectId(id);
+    }
 }

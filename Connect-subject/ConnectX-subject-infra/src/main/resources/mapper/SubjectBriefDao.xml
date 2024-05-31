@@ -92,12 +92,23 @@
             </if>
         </where>
     </select>
+    <select id="queryBySubjectId" resultMap="SubjectBriefMap">
+        select id,
+               subject_id,
+               subject_answer,
+               created_by,
+               created_time,
+               update_by,
+               update_time,
+               is_deleted
+        from subject_brief
+        where subject_id = #{subjectId}
+    </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into subject_brief(subject_id, subject_answer, created_by, created_time, update_by, update_time,
-                                  is_deleted)
-        values (#{subjectId}, #{subjectAnswer}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+        insert into subject_brief(subject_id, subject_answer, created_by, created_time, update_by, update_time)
+        values (#{subjectId}, #{subjectAnswer}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">

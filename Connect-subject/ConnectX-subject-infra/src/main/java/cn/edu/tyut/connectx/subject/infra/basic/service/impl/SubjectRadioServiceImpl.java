@@ -69,4 +69,14 @@ public class SubjectRadioServiceImpl implements SubjectRadioService {
     public int batchInsert(List<SubjectRadio> subjectRadioList) {
         return subjectRadioDao.insertBatch(subjectRadioList);
     }
+
+    @Override
+    public List<SubjectRadio> queryBySubjectId(Long subjectId) {
+        return subjectRadioDao.queryBySubjectId(subjectId);
+    }
+
+    @Override
+    public String querySubjectAnswerBySubjectId(Long subjectId) {
+        return subjectRadioDao.querySubjectAnswerBySubjectId(subjectId);
+    }
 }

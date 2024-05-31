@@ -46,8 +46,25 @@ public interface SubjectMultipleService {
 
     /**
      * 批量插入
+     *
      * @param multipleList 插入的批量
      * @return 受影响行数
      */
     int batchInsert(List<SubjectMultiple> multipleList);
+
+    /**
+     * 根据subjectId查询对应的多选题答案
+     *
+     * @param subjectId 题目id
+     * @return 查询到的多选题答案
+     */
+    List<SubjectMultiple> queryBySubjectId(Long subjectId);
+
+    /**
+     * 根据subjectId查询出正确的答案
+     *
+     * @param subjectId 题目ID
+     * @return 查询出的正确答案
+     */
+    List<String> queryBySubjectIdCorrect(Long subjectId);
 }

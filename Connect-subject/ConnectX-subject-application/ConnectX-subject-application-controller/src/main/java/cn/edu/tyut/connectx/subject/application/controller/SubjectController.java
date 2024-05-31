@@ -89,4 +89,21 @@ public class SubjectController {
             return Result.fail("分页查询失败");
         }
     }
+
+    @PostMapping("/querySubjectInfo")
+    public Result<Object> querySubjectInfo(@RequestBody SubjectInfoDTO subjectInfoDTO) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("SubjectController.querySubjectInfo.subjectInfoDTO:{}", JSON.toJSONString(subjectInfoDTO));
+            }
+            Preconditions.checkNotNull(subjectInfoDTO.getId(), "题目ID不能为空");
+            SubjectInfoBO subjectInfoBO = subjectInfoDtoConvert.convertSubjectInfoDtoToSubjectInfoBo(subjectInfoDTO);
+            SubjectInfoBO subjectInfoBo = subjectInfoDomainService.querySubjectInfo(subjectInfoBO);
+            SubjectInfoDTO subjectInfoDto = subjectInfoDtoConvert.convertSubjectInfoBoToSubjectInfoDto(subjectInfoBo);
+            return Result.ok(subjectInfoDto);
+        } catch (Exception e) {
+            log.error("SubjectController.querySubjectInfo.error: {}", e.getMessage(), e);
+            return Result.fail("查询题目详情失败");
+        }
+    }
 }

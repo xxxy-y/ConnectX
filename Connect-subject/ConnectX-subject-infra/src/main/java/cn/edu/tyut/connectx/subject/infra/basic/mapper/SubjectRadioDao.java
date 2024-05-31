@@ -70,5 +70,20 @@ public interface SubjectRadioDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 根据subjectId来查询
+     *
+     * @param subjectId subjectId
+     * @return 返回列表中包含SubjectRadio答案
+     */
+    List<SubjectRadio> queryBySubjectId(Long subjectId);
+
+    /**
+     * 根据SubjectId查询出当前题目的正确答案内容
+     *
+     * @param subjectId 题目ID
+     * @return 返回查询到的答案(标识a，b，c，d)
+     */
+    String querySubjectAnswerBySubjectId(Long subjectId);
 }
 

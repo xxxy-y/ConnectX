@@ -19,7 +19,7 @@ public interface SubjectCategoryConvert {
      * @param subjectCategoryBo 转换前
      * @return 转换后的对象
      */
-    SubjectCategory convertSubjectCategoryBOToSubjectCategory(SubjectCategoryBO subjectCategoryBo);
+    SubjectCategory convertSubjectCategoryBoToSubjectCategory(SubjectCategoryBO subjectCategoryBo);
 
     /**
      * 将 SubjectCategory 对象转化为 SubjectCategoryBO

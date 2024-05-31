@@ -38,7 +38,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryDomainServiceImpl.add.subjectCategoryBo:{}", JSON.toJSONString(subjectCategoryBo));
         }
-        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBo);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBoToSubjectCategory(subjectCategoryBo);
         subjectCategory.setIsDeleted(0);
         subjectCategoryService.insert(subjectCategory);
     }
@@ -46,7 +46,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Override
     public List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO) {
         // 在这一层进行业务性的修改
-        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBoToSubjectCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
         List<SubjectCategory> subjectCategoryList = subjectCategoryService.queryCategory(subjectCategory);
         List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryConvert.convertSubjectCategoryListToSubjectCategoryBOList(subjectCategoryList);
@@ -58,7 +58,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
 
     @Override
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
-        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBoToSubjectCategory(subjectCategoryBO);
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.update.subjectCategoryBO:{}", JSON.toJSONString(subjectCategoryBO));
         }
@@ -67,7 +67,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
 
     @Override
     public Boolean delete(SubjectCategoryBO subjectCategoryBO) {
-        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBOToSubjectCategory(subjectCategoryBO);
+        SubjectCategory subjectCategory = subjectCategoryConvert.convertSubjectCategoryBoToSubjectCategory(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.DELETED.getCode());
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.delete.subjectCategoryBO:{}", JSON.toJSONString(subjectCategoryBO));

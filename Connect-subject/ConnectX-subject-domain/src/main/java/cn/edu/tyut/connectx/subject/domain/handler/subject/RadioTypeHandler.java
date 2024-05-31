@@ -2,7 +2,9 @@ package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.RadioSubjectConvert;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectRadio;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectRadioService;
 import org.jetbrains.annotations.NotNull;
@@ -48,5 +50,16 @@ public class RadioTypeHandler implements SubjectTypeHandler {
             subjectRadioList.add(subjectRadio);
         });
         return subjectRadioService.batchInsert(subjectRadioList);
+    }
+
+    @Override
+    public SubjectOptionBO query(Long subjectId) {
+        List<SubjectRadio> subjectRadioList = subjectRadioService.queryBySubjectId(subjectId);
+        List<SubjectAnswerBO> subjectAnswerBoList = radioSubjectConvert.convertSubjectRadioListToSubjectAnswerBOList(subjectRadioList);
+        String answer = subjectRadioService.querySubjectAnswerBySubjectId(subjectId);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setOptionList(subjectAnswerBoList);
+        subjectOptionBO.setSubjectAnswer(answer);
+        return subjectOptionBO;
     }
 }

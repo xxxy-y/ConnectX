@@ -30,7 +30,7 @@ public class SubjectInfo implements Serializable {
      */
     private String settleName;
     /**
-     * 题目类型 1单选 2多选 3判断 4简答
+     * 题目类型 1单选 2多选 3 判断 4 简答
      */
     private Integer subjectType;
     /**

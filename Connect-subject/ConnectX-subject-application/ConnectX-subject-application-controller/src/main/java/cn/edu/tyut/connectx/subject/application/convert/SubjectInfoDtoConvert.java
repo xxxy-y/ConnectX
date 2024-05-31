@@ -18,4 +18,11 @@ public interface SubjectInfoDtoConvert {
      */
     SubjectInfoBO convertSubjectInfoDtoToSubjectInfoBo(SubjectInfoDTO subjectInfoDTO);
 
+    /**
+     * 将 Bo转换为DTO
+     *
+     * @param subjectInfoBO 传入的BO
+     * @return 转换后的DTO
+     */
+    SubjectInfoDTO convertSubjectInfoBoToSubjectInfoDto(SubjectInfoBO subjectInfoBO);
 }

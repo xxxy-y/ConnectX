@@ -1,15 +1,14 @@
 package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
-import cn.edu.tyut.connectx.subject.domain.convert.JudgeSubjectConvert;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectJudge;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectJudgeService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author 吴庆涛
@@ -17,17 +16,11 @@ import java.util.List;
  */
 @Component
 public class JudgeTypeHandler implements SubjectTypeHandler {
-    private JudgeSubjectConvert judgeSubjectConvert;
     private SubjectJudgeService subjectJudgeService;
 
     @Autowired
     public void setSubjectJudgeService(SubjectJudgeService subjectJudgeService) {
         this.subjectJudgeService = subjectJudgeService;
-    }
-
-    @Autowired
-    public void setJudgeSubjectConvert(JudgeSubjectConvert judgeSubjectConvert) {
-        this.judgeSubjectConvert = judgeSubjectConvert;
     }
 
     @Override
@@ -36,13 +29,17 @@ public class JudgeTypeHandler implements SubjectTypeHandler {
     }
 
     @Override
-    public int add(SubjectInfoBO subjectInfoBo) {
-        List<SubjectJudge> subjectJudgeList = new ArrayList<>();
-        subjectInfoBo.getOptionList().forEach(option -> {
-            SubjectJudge subjectJudge = judgeSubjectConvert.convertSubjectAnswerBoToSubjectJudge(option);
-            subjectJudge.setSubjectId(subjectInfoBo.getId());
-            subjectJudgeList.add(subjectJudge);
-        });
-       return subjectJudgeService.batchInsert(subjectJudgeList);
+    public int add(@NotNull SubjectInfoBO subjectInfoBo) {
+        SubjectJudge subjectJudge = new SubjectJudge();
+        SubjectAnswerBO subjectAnswerBO = subjectInfoBo.getOptionList().get(0);
+        subjectJudge.setSubjectId(subjectInfoBo.getId());
+        subjectJudge.setIsCorrect(subjectAnswerBO.getIsCorrect());
+        return subjectJudgeService.insert(subjectJudge);
+    }
+
+    @Override
+    public SubjectOptionBO query(Long subjectId) {
+        // TODO query查询题目答案未实现！！
+        return null;
     }
 }

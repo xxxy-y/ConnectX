@@ -59,4 +59,12 @@ public interface SubjectMappingService {
      * @return 受影响行数
      */
     int batchInsert(List<SubjectMapping> subjectMappingList);
+
+    /**
+     * 在mapping表中根据subjectId查询数据
+     *
+     * @param id 传入的subjectId
+     * @return 返回查询结果
+     */
+    List<SubjectMapping> queryBySubjectId(Long id);
 }

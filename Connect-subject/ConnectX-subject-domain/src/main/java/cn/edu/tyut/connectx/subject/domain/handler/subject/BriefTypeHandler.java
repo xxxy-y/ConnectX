@@ -3,13 +3,12 @@ package cn.edu.tyut.connectx.subject.domain.handler.subject;
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.BriefSubjectConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectBrief;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectBriefService;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @Author 吴庆涛
@@ -36,13 +35,17 @@ public class BriefTypeHandler implements SubjectTypeHandler {
     }
 
     @Override
-    public int add(SubjectInfoBO subjectInfoBo) {
-        List<SubjectBrief> subjectBriefList = new ArrayList<>();
-        subjectInfoBo.getOptionList().forEach(option -> {
-            SubjectBrief subjectBrief = briefSubjectConvert.convertSubjectAnswerBoToSubjectBrief(option);
-            subjectBrief.setSubjectId(subjectInfoBo.getId());
-            subjectBriefList.add(subjectBrief);
-        });
-        return subjectBriefService.batchInsert(subjectBriefList);
+    public int add(@NotNull SubjectInfoBO subjectInfoBo) {
+        SubjectBrief subjectBrief = briefSubjectConvert.convertSubjectInfoBoToSubjectBrief(subjectInfoBo);
+        subjectBrief.setSubjectId(subjectInfoBo.getId());
+        return subjectBriefService.insert(subjectBrief);
+    }
+
+    @Override
+    public SubjectOptionBO query(Long subjectId) {
+        SubjectBrief subjectBrief = subjectBriefService.queryBySubjectId(subjectId);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setSubjectAnswer(subjectBrief.getSubjectAnswer());
+        return subjectOptionBO;
     }
 }

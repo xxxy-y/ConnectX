@@ -26,7 +26,7 @@ public interface SubjectJudgeService {
      * @param subjectJudge 实例对象
      * @return 实例对象
      */
-    SubjectJudge insert(SubjectJudge subjectJudge);
+    int insert(SubjectJudge subjectJudge);
 
     /**
      * 修改数据

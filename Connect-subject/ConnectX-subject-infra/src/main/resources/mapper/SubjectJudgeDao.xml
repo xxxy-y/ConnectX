@@ -95,8 +95,10 @@
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into subject_judge(subject_id, is_correct, created_by, created_time, update_by, update_time, is_deleted)
-        values (#{subjectId}, #{isCorrect}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+        insert into subject_judge(subject_id, is_correct, created_by,
+                                  created_time, update_by, update_time)
+        values (#{subjectId}, #{isCorrect}, #{createdBy},
+                #{createdTime}, #{updateBy}, #{updateTime})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">

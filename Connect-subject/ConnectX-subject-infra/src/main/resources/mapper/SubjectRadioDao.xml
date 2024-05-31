@@ -110,6 +110,30 @@
         </where>
     </select>
 
+    <select id="queryBySubjectId" resultMap="SubjectRadioMap">
+        select id,
+               subject_id,
+               option_type,
+               option_content,
+               is_correct,
+               created_by,
+               created_time,
+               update_by,
+               update_time,
+               is_deleted
+        from subject_radio
+        where subject_id = #{subjectId}
+          and is_deleted = 0
+    </select>
+
+    <select id="querySubjectAnswerBySubjectId" resultType="java.lang.String">
+        select option_type
+        from subject_radio
+        where subject_id = #{subjectId}
+          and is_deleted = 0
+          and is_correct = 1
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into subject_radio(subject_id, option_type, option_content, is_correct, created_by, created_time,

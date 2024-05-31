@@ -3,12 +3,15 @@ package cn.edu.tyut.connectx.subject.domain.service.impl;
 import cn.edu.tyut.connectx.subject.common.entity.PageResult;
 import cn.edu.tyut.connectx.subject.domain.convert.SubjectInfoConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
 import cn.edu.tyut.connectx.subject.domain.handler.subject.SubjectTypeHandler;
 import cn.edu.tyut.connectx.subject.domain.handler.subject.SubjectTypeHandlerFactory;
 import cn.edu.tyut.connectx.subject.domain.service.SubjectInfoDomainService;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectInfo;
+import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectLabel;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectMapping;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectInfoService;
+import cn.edu.tyut.connectx.subject.infra.basic.service.impl.SubjectLabelServiceImpl;
 import cn.edu.tyut.connectx.subject.infra.basic.service.impl.SubjectMappingServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -17,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -30,6 +34,7 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
     private SubjectTypeHandlerFactory subjectTypeHandlerFactory;
     private SubjectInfoService subjectInfoService;
     private SubjectMappingServiceImpl subjectMappingService;
+    private SubjectLabelServiceImpl subjectLabelService;
 
     @Autowired
     public void setSubjectMappingService(SubjectMappingServiceImpl subjectMappingService) {
@@ -49,6 +54,11 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
     @Autowired
     public void setSubjectTypeHandlerFactory(SubjectTypeHandlerFactory subjectTypeHandlerFactory) {
         this.subjectTypeHandlerFactory = subjectTypeHandlerFactory;
+    }
+
+    @Autowired
+    public void setSubjectLabelService(SubjectLabelServiceImpl subjectLabelService) {
+        this.subjectLabelService = subjectLabelService;
     }
 
     @Override
@@ -95,6 +105,37 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         pageResult.setTotal(count);
         pageResult.setResult(subjectInfoBOList);
         return pageResult;
+    }
+
+    /**
+     * 查询题目详情
+     *
+     * @param subjectInfoBO 其中包含提供的信息
+     * @return 查询到的题目信息
+     */
+    @Override
+    public SubjectInfoBO querySubjectInfo(@NotNull SubjectInfoBO subjectInfoBO) {
+        Long id = subjectInfoBO.getId();
+        SubjectInfo subjectInfo = subjectInfoService.queryById(id);
+        // 查询题目的答案并将题目答案放入subjectInfoBo里面
+        Integer subjectType = subjectInfo.getSubjectType();
+        SubjectTypeHandler handler = subjectTypeHandlerFactory.getHandler(subjectType);
+        // handler.query方法是用来查询这个题目答案的，
+        // 查询结果包括 题目答案正确的答案 和 答案的选项:一个列表，其中包括这个选项的标识，选项内容和该选项是否正确
+        SubjectOptionBO optionBO = handler.query(subjectInfo.getId());
+        SubjectInfoBO infoBO = subjectInfoConvert.convertSubjectOptionAndSubjecyInfoToSubjectInfoBO(optionBO, subjectInfo);
+        List<String> labelNameList = new LinkedList<>();
+        // 转换，将labelId转换为labelName-->查mapping表
+        // 从mapping表中根据subjectId查找到当前题目对应的标签ID
+        List<SubjectMapping> subjectMappingList = subjectMappingService.queryBySubjectId(id);
+        // 根据查询到的标签ID查询到这些标签ID对应的标签名称
+        subjectMappingList.forEach(subjectMapping -> {
+            Long labelId = subjectMapping.getLabelId();
+            SubjectLabel subjectLabel = subjectLabelService.queryById(labelId);
+            labelNameList.add(subjectLabel.getLabelName());
+        });
+        infoBO.setLabelName(labelNameList);
+        return infoBO;
     }
 
     private @NotNull List<SubjectMapping> getSubjectMappingList(@NotNull SubjectInfoBO subjectInfoBO) {

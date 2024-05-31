@@ -2,6 +2,7 @@ package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
+import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,4 +27,12 @@ public interface SubjectTypeHandler {
      * @return 影响行数 一道题所对应的选项有几个，那么受影响行数就有几个
      */
     int add(SubjectInfoBO subjectInfoBo);
+
+    /**
+     * 根据用户id查询用户详情
+     *
+     * @param subjectId 用户id
+     * @return 返回查询出来的答案
+     */
+    SubjectOptionBO query(Long subjectId);
 }

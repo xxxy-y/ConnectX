@@ -20,6 +20,7 @@ public interface SubjectMultipleDao {
      * @return 实例对象
      */
     SubjectMultiple queryById(Long id);
+
     /**
      * 统计总行数
      *
@@ -69,5 +70,20 @@ public interface SubjectMultipleDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 根据subjectId来查询当前题目的答案List
+     *
+     * @param subjectId 题目ID
+     * @return 查询到的答案list
+     */
+    List<SubjectMultiple> queryBySubjectId(Long subjectId);
+
+    /**
+     * 根据SubjectId查询出当前题目的正确答案
+     *
+     * @param subjectId 题目ID
+     * @return 查询到的答案List
+     */
+    List<String> queryBySubjectIdCorrect(Long subjectId);
 }
 

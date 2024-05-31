@@ -51,4 +51,20 @@ public interface SubjectRadioService {
      * @return 受影响的行数
      */
     int batchInsert(List<SubjectRadio> subjectRadioList);
+
+    /**
+     * 根据subjectId来查询到对应的SubjectRadio（单选题答案）数据
+     *
+     * @param subjectId subjectId
+     * @return 查询到的列表，其中包含SubjectRadio
+     */
+    List<SubjectRadio> queryBySubjectId(Long subjectId);
+
+    /**
+     * 根据SubjectId查询到正确答案的内容
+     *
+     * @param subjectId subjectId
+     * @return 正确答案的内容(标识a ， b ， c ， d)
+     */
+    String querySubjectAnswerBySubjectId(Long subjectId);
 }

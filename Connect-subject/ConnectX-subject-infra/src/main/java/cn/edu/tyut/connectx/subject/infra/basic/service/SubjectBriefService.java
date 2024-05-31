@@ -26,7 +26,7 @@ public interface SubjectBriefService {
      * @param subjectBrief 实例对象
      * @return 实例对象
      */
-    SubjectBrief insert(SubjectBrief subjectBrief);
+    int insert(SubjectBrief subjectBrief);
 
     /**
      * 修改数据
@@ -51,4 +51,12 @@ public interface SubjectBriefService {
      * @return 受影响行数
      */
     int batchInsert(List<SubjectBrief> subjectBriefList);
+
+    /**
+     * 根据题目ID查询答案
+     *
+     * @param subjectId 题目ID
+     * @return 查询到的答案
+     */
+    SubjectBrief queryBySubjectId(long subjectId);
 }
