@@ -4,50 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:分页查询处理 fix:在info表中插入数据时，会发生is_deleted不会自动设置为0，还有radio表等那几个题目答案表。">
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectOptionBO.java" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:新增题目接口测试">
+      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/config/GlobalConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectInfoDtoConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectInfoDtoConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectInfoDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectInfoDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/BriefSubjectConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/BriefSubjectConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/JudgeSubjectConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/JudgeSubjectConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/MultipleSubjectConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/MultipleSubjectConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/RadioSubjectConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/RadioSubjectConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectCategoryConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectCategoryConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectInfoConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectInfoConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectLabelConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/SubjectLabelConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectInfoBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectInfoBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/BriefTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/BriefTypeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/JudgeTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/JudgeTypeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/MultipleTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/MultipleTypeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/RadioTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/RadioTypeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/SubjectTypeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/SubjectTypeHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/SubjectTypeHandlerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/handler/subject/SubjectTypeHandlerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectInfoDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectInfoDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/convert/JudgeSubjectConvert.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectInfoDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectInfoDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/entity/SubjectInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectBriefDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectBriefDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectMappingDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectMappingDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectMultipleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectMultipleDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectRadioDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectRadioDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectBriefService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectBriefService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectJudgeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectJudgeService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectMappingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectMappingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectMultipleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectMultipleService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectRadioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectRadioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectBriefServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectBriefServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectJudgeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectJudgeServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectMappingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectMappingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectMultipleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectMultipleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectRadioServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectRadioServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectBriefDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectBriefDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectInfoDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectInfoDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectJudgeDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectJudgeDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectMappingDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectMappingDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectMultipleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectMultipleDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectRadioDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectRadioDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +188,7 @@
       <workItem from="1717059072800" duration="4360000" />
       <workItem from="1717064687630" duration="6113000" />
       <workItem from="1717072370602" duration="398000" />
-      <workItem from="1717133326574" duration="10234000" />
+      <workItem from="1717133326574" duration="14342000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -323,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717061829911</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat:新增题目接口测试">
+      <option name="closed" value="true" />
+      <created>1717146332210</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1717146332210</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,7 +313,8 @@
     <MESSAGE value="feat:封装分页PageInfo、PageResult" />
     <MESSAGE value="feat:工厂+策略模式实现题目分别处理" />
     <MESSAGE value="feat:分页查询处理 fix:在info表中插入数据时，会发生is_deleted不会自动设置为0，还有radio表等那几个题目答案表。" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:分页查询处理 fix:在info表中插入数据时，会发生is_deleted不会自动设置为0，还有radio表等那几个题目答案表。" />
+    <MESSAGE value="feat:新增题目接口测试" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:新增题目接口测试" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
