@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
+import cn.edu.tyut.connectx.subject.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.MultipleSubjectConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
@@ -40,7 +41,6 @@ public class MultipleTypeHandler implements SubjectTypeHandler {
 
     @Override
     public int add(@NotNull SubjectInfoBO subjectInfoBo) {
-        // TODO 这里可以进行多选题特有的检验
         List<SubjectMultiple> multipleList = new ArrayList<>();
         subjectInfoBo.getOptionList().forEach(option -> {
             SubjectMultiple subjectMultiple = multipleSubjectConvert.convertSubjectAnswerBoToSubjectMultiple(option);
@@ -52,12 +52,13 @@ public class MultipleTypeHandler implements SubjectTypeHandler {
 
     @Override
     public SubjectOptionBO query(Long subjectId) {
-        List<SubjectMultiple> subjectMultipleList = subjectMultipleService.queryBySubjectId(subjectId);
-        List<SubjectAnswerBO> subjectAnswerBoList = multipleSubjectConvert.convertSubjectMultipleListToSubjectAnswerBo(subjectMultipleList);
-        List<String> correctAnswer = subjectMultipleService.queryBySubjectIdCorrect(subjectId);
+        SubjectMultiple subjectMultiple = new SubjectMultiple();
+        subjectMultiple.setSubjectId(subjectId);
+        subjectMultiple.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        List<SubjectMultiple> result = subjectMultipleService.queryByCondition(subjectMultiple);
+        List<SubjectAnswerBO> subjectAnswerBoList = multipleSubjectConvert.convertSubjectMultipleListToSubjectAnswerBo(result);
         SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
         subjectOptionBO.setOptionList(subjectAnswerBoList);
-        subjectOptionBO.setSubjectAnswer(correctAnswer.toString());
         return subjectOptionBO;
     }
 }

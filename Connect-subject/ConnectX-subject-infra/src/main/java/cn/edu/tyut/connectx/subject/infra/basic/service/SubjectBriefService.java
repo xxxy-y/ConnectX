@@ -59,4 +59,12 @@ public interface SubjectBriefService {
      * @return 查询到的答案
      */
     SubjectBrief queryBySubjectId(long subjectId);
+
+    /**
+     * 条件查询，在进行参数传递时，尽量使用实体类来进行参数的传递，因为这样方法的扩展性和可维护性更好
+     *
+     * @param subjectBrief 传入的实体类
+     * @return 查询到的数据
+     */
+    SubjectBrief queryByCondition(SubjectBrief subjectBrief);
 }

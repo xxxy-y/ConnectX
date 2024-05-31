@@ -3,9 +3,9 @@ package cn.edu.tyut.connectx.subject.infra.basic.service.impl;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectJudge;
 import cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectJudgeDao;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectJudgeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,8 +16,12 @@ import java.util.List;
  */
 @Service("subjectJudgeService")
 public class SubjectJudgeServiceImpl implements SubjectJudgeService {
-    @Resource
     private SubjectJudgeDao subjectJudgeDao;
+
+    @Autowired
+    public void setSubjectJudgeDao(SubjectJudgeDao subjectJudgeDao) {
+        this.subjectJudgeDao = subjectJudgeDao;
+    }
 
     /**
      * 通过ID查询单条数据
@@ -68,5 +72,10 @@ public class SubjectJudgeServiceImpl implements SubjectJudgeService {
     @Override
     public int batchInsert(List<SubjectJudge> subjectJudgeList) {
         return subjectJudgeDao.insertBatch(subjectJudgeList);
+    }
+
+    @Override
+    public List<SubjectJudge> queryByCondition(SubjectJudge subjectJudge) {
+        return subjectJudgeDao.queryAllByLimit(subjectJudge);
     }
 }

@@ -85,5 +85,13 @@ public interface SubjectMultipleDao {
      * @return 查询到的答案List
      */
     List<String> queryBySubjectIdCorrect(Long subjectId);
+
+    /**
+     * 条件查询
+     *
+     * @param subjectMultiple 条件查询
+     * @return 条件查询结果
+     */
+    List<SubjectMultiple> queryAllByLimit(SubjectMultiple subjectMultiple);
 }
 

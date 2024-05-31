@@ -61,10 +61,10 @@ public interface SubjectRadioService {
     List<SubjectRadio> queryBySubjectId(Long subjectId);
 
     /**
-     * 根据SubjectId查询到正确答案的内容
+     * 条件查询
      *
-     * @param subjectId subjectId
-     * @return 正确答案的内容(标识a ， b ， c ， d)
+     * @param subjectRadio 条件查询条件
+     * @return 条件查询结果
      */
-    String querySubjectAnswerBySubjectId(Long subjectId);
+    List<SubjectRadio> queryByCondition(SubjectRadio subjectRadio);
 }

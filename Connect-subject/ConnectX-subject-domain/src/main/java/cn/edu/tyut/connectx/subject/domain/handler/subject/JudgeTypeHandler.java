@@ -1,6 +1,8 @@
 package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
+import cn.edu.tyut.connectx.subject.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
+import cn.edu.tyut.connectx.subject.domain.convert.JudgeSubjectConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
@@ -10,6 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @Author 吴庆涛
  * @DATE 2024/5/29
@@ -17,10 +21,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class JudgeTypeHandler implements SubjectTypeHandler {
     private SubjectJudgeService subjectJudgeService;
+    private JudgeSubjectConvert judgeSubjectConvert;
 
     @Autowired
     public void setSubjectJudgeService(SubjectJudgeService subjectJudgeService) {
         this.subjectJudgeService = subjectJudgeService;
+    }
+
+    @Autowired
+    public void setJudgeSubjectConvert(JudgeSubjectConvert judgeSubjectConvert) {
+        this.judgeSubjectConvert = judgeSubjectConvert;
     }
 
     @Override
@@ -39,7 +49,13 @@ public class JudgeTypeHandler implements SubjectTypeHandler {
 
     @Override
     public SubjectOptionBO query(Long subjectId) {
-        // TODO query查询题目答案未实现！！
-        return null;
+        SubjectJudge subjectJudge = new SubjectJudge();
+        subjectJudge.setSubjectId(subjectId);
+        subjectJudge.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        List<SubjectJudge> result = subjectJudgeService.queryByCondition(subjectJudge);
+        List<SubjectAnswerBO> subjectAnswerBoList = judgeSubjectConvert.convertSubjectJudgeListToSubjectAnswerBoList(result);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setOptionList(subjectAnswerBoList);
+        return subjectOptionBO;
     }
 }

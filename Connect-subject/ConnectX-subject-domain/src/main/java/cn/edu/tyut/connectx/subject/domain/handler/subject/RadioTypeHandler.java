@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.subject.domain.handler.subject;
 
+import cn.edu.tyut.connectx.subject.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.subject.common.enums.SubjectInfoTypeEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.RadioSubjectConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectAnswerBO;
@@ -42,7 +43,6 @@ public class RadioTypeHandler implements SubjectTypeHandler {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int add(@NotNull SubjectInfoBO subjectInfoBo) {
-        // TODO 在这里可以进行一些单选题的特殊校验
         List<SubjectRadio> subjectRadioList = new ArrayList<>();
         subjectInfoBo.getOptionList().forEach(option -> {
             SubjectRadio subjectRadio = radioSubjectConvert.convertSubjectAnswerBoToSubjectRadio(option);
@@ -54,12 +54,13 @@ public class RadioTypeHandler implements SubjectTypeHandler {
 
     @Override
     public SubjectOptionBO query(Long subjectId) {
-        List<SubjectRadio> subjectRadioList = subjectRadioService.queryBySubjectId(subjectId);
-        List<SubjectAnswerBO> subjectAnswerBoList = radioSubjectConvert.convertSubjectRadioListToSubjectAnswerBOList(subjectRadioList);
-        String answer = subjectRadioService.querySubjectAnswerBySubjectId(subjectId);
+        SubjectRadio subjectRadio = new SubjectRadio();
+        subjectRadio.setSubjectId(subjectId);
+        subjectRadio.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        List<SubjectRadio> result = subjectRadioService.queryByCondition(subjectRadio);
+        List<SubjectAnswerBO> subjectAnswerBoList = radioSubjectConvert.convertSubjectRadioListToSubjectAnswerBOList(result);
         SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
         subjectOptionBO.setOptionList(subjectAnswerBoList);
-        subjectOptionBO.setSubjectAnswer(answer);
         return subjectOptionBO;
     }
 }

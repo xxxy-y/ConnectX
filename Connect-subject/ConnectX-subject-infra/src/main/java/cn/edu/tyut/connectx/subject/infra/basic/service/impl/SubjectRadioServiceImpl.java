@@ -3,9 +3,9 @@ package cn.edu.tyut.connectx.subject.infra.basic.service.impl;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectRadio;
 import cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectRadioDao;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectRadioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,8 +16,12 @@ import java.util.List;
  */
 @Service("subjectRadioService")
 public class SubjectRadioServiceImpl implements SubjectRadioService {
-    @Resource
     private SubjectRadioDao subjectRadioDao;
+
+    @Autowired
+    public void setSubjectRadioDao(SubjectRadioDao subjectRadioDao) {
+        this.subjectRadioDao = subjectRadioDao;
+    }
 
     /**
      * 通过ID查询单条数据
@@ -76,7 +80,7 @@ public class SubjectRadioServiceImpl implements SubjectRadioService {
     }
 
     @Override
-    public String querySubjectAnswerBySubjectId(Long subjectId) {
-        return subjectRadioDao.querySubjectAnswerBySubjectId(subjectId);
+    public List<SubjectRadio> queryByCondition(SubjectRadio subjectRadio) {
+        return subjectRadioDao.queryAllByLimit(subjectRadio);
     }
 }

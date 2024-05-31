@@ -14,6 +14,14 @@ import java.util.List;
 public interface SubjectJudgeDao {
 
     /**
+     * 根据条件查询结果
+     *
+     * @param subjectJudge 查询条件
+     * @return 查询到的结果
+     */
+    List<SubjectJudge> queryAllByLimit(SubjectJudge subjectJudge);
+
+    /**
      * 通过ID查询单条数据
      *
      * @param id 主键
@@ -69,6 +77,5 @@ public interface SubjectJudgeDao {
      * @return 影响行数
      */
     int deleteById(Long id);
-
 }
 

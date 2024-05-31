@@ -3,9 +3,9 @@ package cn.edu.tyut.connectx.subject.infra.basic.service.impl;
 import cn.edu.tyut.connectx.subject.infra.basic.entity.SubjectMultiple;
 import cn.edu.tyut.connectx.subject.infra.basic.mapper.SubjectMultipleDao;
 import cn.edu.tyut.connectx.subject.infra.basic.service.SubjectMultipleService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -16,8 +16,12 @@ import java.util.List;
  */
 @Service("subjectMultipleService")
 public class SubjectMultipleServiceImpl implements SubjectMultipleService {
-    @Resource
     private SubjectMultipleDao subjectMultipleDao;
+
+    @Autowired
+    public void setSubjectMultipleDao(SubjectMultipleDao subjectMultipleDao) {
+        this.subjectMultipleDao = subjectMultipleDao;
+    }
 
     /**
      * 通过ID查询单条数据
@@ -76,7 +80,7 @@ public class SubjectMultipleServiceImpl implements SubjectMultipleService {
     }
 
     @Override
-    public List<String> queryBySubjectIdCorrect(Long subjectId) {
-        return subjectMultipleDao.queryBySubjectIdCorrect(subjectId);
+    public List<SubjectMultiple> queryByCondition(SubjectMultiple subjectMultiple) {
+        return subjectMultipleDao.queryAllByLimit(subjectMultiple);
     }
 }

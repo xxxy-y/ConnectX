@@ -82,8 +82,16 @@ public interface SubjectRadioDao {
      * 根据SubjectId查询出当前题目的正确答案内容
      *
      * @param subjectId 题目ID
-     * @return 返回查询到的答案(标识a，b，c，d)
+     * @return 返回查询到的答案(标识a ， b ， c ， d)
      */
     String querySubjectAnswerBySubjectId(Long subjectId);
+
+    /**
+     * 条件查询结果
+     *
+     * @param subjectRadio 条件查询的条件
+     * @return 条件查询的结果
+     */
+    List<SubjectRadio> queryAllByLimit(SubjectRadio subjectRadio);
 }
 

@@ -73,4 +73,9 @@ public class SubjectBriefServiceImpl implements SubjectBriefService {
     public SubjectBrief queryBySubjectId(long subjectId) {
         return subjectBriefDao.queryBySubjectId(subjectId);
     }
+
+    @Override
+    public SubjectBrief queryByCondition(SubjectBrief subjectBrief) {
+        return subjectBriefDao.queryAllByLimit(subjectBrief);
+    }
 }

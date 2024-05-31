@@ -61,10 +61,10 @@ public interface SubjectMultipleService {
     List<SubjectMultiple> queryBySubjectId(Long subjectId);
 
     /**
-     * 根据subjectId查询出正确的答案
+     * 条件查询
      *
-     * @param subjectId 题目ID
-     * @return 查询出的正确答案
+     * @param subjectMultiple 条件查询的条件
+     * @return 返回查询到的结果
      */
-    List<String> queryBySubjectIdCorrect(Long subjectId);
+    List<SubjectMultiple> queryByCondition(SubjectMultiple subjectMultiple);
 }

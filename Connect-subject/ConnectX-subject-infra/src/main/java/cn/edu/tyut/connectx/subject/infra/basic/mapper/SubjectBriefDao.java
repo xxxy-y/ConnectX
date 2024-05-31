@@ -77,5 +77,13 @@ public interface SubjectBriefDao {
      * @return 查询到的与之对应的答案
      */
     SubjectBrief queryBySubjectId(long subjectId);
+
+    /**
+     * 根据subjectBrief查询
+     *
+     * @param subjectBrief 传入的查询条件
+     * @return 查询到的结果
+     */
+    SubjectBrief queryAllByLimit(SubjectBrief subjectBrief);
 }
 

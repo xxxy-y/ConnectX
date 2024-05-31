@@ -1,6 +1,7 @@
 package cn.edu.tyut.connectx.subject.domain.service.impl;
 
 import cn.edu.tyut.connectx.subject.common.entity.PageResult;
+import cn.edu.tyut.connectx.subject.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.subject.domain.convert.SubjectInfoConvert;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectInfoBO;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectOptionBO;
@@ -20,8 +21,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author 吴庆涛
@@ -124,17 +125,17 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         // 查询结果包括 题目答案正确的答案 和 答案的选项:一个列表，其中包括这个选项的标识，选项内容和该选项是否正确
         SubjectOptionBO optionBO = handler.query(subjectInfo.getId());
         SubjectInfoBO infoBO = subjectInfoConvert.convertSubjectOptionAndSubjecyInfoToSubjectInfoBO(optionBO, subjectInfo);
-        List<String> labelNameList = new LinkedList<>();
         // 转换，将labelId转换为labelName-->查mapping表
         // 从mapping表中根据subjectId查找到当前题目对应的标签ID
-        List<SubjectMapping> subjectMappingList = subjectMappingService.queryBySubjectId(id);
+        SubjectMapping subjectMapping = new SubjectMapping();
+        subjectMapping.setSubjectId(id);
+        subjectMapping.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        List<SubjectMapping> subjectMappingList = subjectMappingService.queryLabelId(subjectMapping);
         // 根据查询到的标签ID查询到这些标签ID对应的标签名称
-        subjectMappingList.forEach(subjectMapping -> {
-            Long labelId = subjectMapping.getLabelId();
-            SubjectLabel subjectLabel = subjectLabelService.queryById(labelId);
-            labelNameList.add(subjectLabel.getLabelName());
-        });
-        infoBO.setLabelName(labelNameList);
+        List<Long> labelIdList = subjectMappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
+        List<SubjectLabel> subjectLabelList = subjectLabelService.batchQueryById(labelIdList);
+        List<String> collect = subjectLabelList.stream().map(SubjectLabel::getLabelName).collect(Collectors.toList());
+        infoBO.setLabelName(collect);
         return infoBO;
     }
 

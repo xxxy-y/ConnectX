@@ -51,4 +51,12 @@ public interface SubjectJudgeService {
      * @return 影响行数
      */
     int batchInsert(List<SubjectJudge> subjectJudgeList);
+
+    /**
+     * 根据条件查询数据
+     *
+     * @param subjectJudge 查询条件
+     * @return 查询结果
+     */
+    List<SubjectJudge> queryByCondition(SubjectJudge subjectJudge);
 }
