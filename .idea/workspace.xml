@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:配置SQL拦截器实现SQL语句自动翻译">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/SqlStatementInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/SqlStatementInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/src/main/resources/application.yml" afterDir="false" />
-    </list>
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:jenkins实现项目自动打包部署" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -191,6 +186,7 @@
       <workItem from="1717072370602" duration="398000" />
       <workItem from="1717133326574" duration="23202000" />
       <workItem from="1717230121789" duration="2064000" />
+      <workItem from="1717252669376" duration="59000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -320,7 +316,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717158096929</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="feat:jenkins实现项目自动打包部署">
+      <option name="closed" value="true" />
+      <created>1717252723930</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717252723930</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +347,8 @@
     <MESSAGE value="feat:全局空值处理" />
     <MESSAGE value="feat:查询题目详情实现" />
     <MESSAGE value="feat:配置SQL拦截器实现SQL语句自动翻译" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:配置SQL拦截器实现SQL语句自动翻译" />
+    <MESSAGE value="feat:jenkins实现项目自动打包部署" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:jenkins实现项目自动打包部署" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
