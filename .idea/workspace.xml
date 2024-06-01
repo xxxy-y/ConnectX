@@ -187,6 +187,7 @@
       <workItem from="1717133326574" duration="23202000" />
       <workItem from="1717230121789" duration="2064000" />
       <workItem from="1717252669376" duration="59000" />
+      <workItem from="1717253328123" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -324,7 +325,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717252723930</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="feat:jenkins实现项目自动打包部署">
+      <option name="closed" value="true" />
+      <created>1717253350578</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717253350578</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
