@@ -7,6 +7,7 @@ import org.apache.ibatis.mapping.MappedStatement;
 import org.apache.ibatis.plugin.*;
 import org.apache.ibatis.session.ResultHandler;
 import org.apache.ibatis.session.RowBounds;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,7 +23,7 @@ public class SqlStatementInterceptor implements Interceptor {
     public static final Logger log = LoggerFactory.getLogger("sys-sql");
 
     @Override
-    public Object intercept(Invocation invocation) throws Throwable {
+    public Object intercept(@NotNull Invocation invocation) throws Throwable {
         long startTime = System.currentTimeMillis();
         try {
             return invocation.proceed();

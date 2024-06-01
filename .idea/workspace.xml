@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:查询题目详情实现">
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/MybatisConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/MybatisPlusAllSqlLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/SqlStatementInterceptor.java" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:配置SQL拦截器实现SQL语句自动翻译">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/SqlStatementInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/config/SqlStatementInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Connect-subject/ConnectX-subject-starter/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +62,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.DruidEncryptUtil.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Connect-subject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Connect-subject [install].executor&quot;: &quot;Run&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -188,7 +189,8 @@
       <workItem from="1717059072800" duration="4360000" />
       <workItem from="1717064687630" duration="6113000" />
       <workItem from="1717072370602" duration="398000" />
-      <workItem from="1717133326574" duration="21073000" />
+      <workItem from="1717133326574" duration="23202000" />
+      <workItem from="1717230121789" duration="2064000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -310,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717157246783</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feat:配置SQL拦截器实现SQL语句自动翻译">
+      <option name="closed" value="true" />
+      <created>1717158096929</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1717158096929</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +342,8 @@
     <MESSAGE value="feat:新增题目接口测试" />
     <MESSAGE value="feat:全局空值处理" />
     <MESSAGE value="feat:查询题目详情实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:查询题目详情实现" />
+    <MESSAGE value="feat:配置SQL拦截器实现SQL语句自动翻译" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:配置SQL拦截器实现SQL语句自动翻译" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
