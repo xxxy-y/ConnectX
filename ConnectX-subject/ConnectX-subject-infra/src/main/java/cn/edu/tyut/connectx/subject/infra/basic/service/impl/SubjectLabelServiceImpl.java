@@ -75,4 +75,15 @@ public class SubjectLabelServiceImpl implements SubjectLabelService {
     public List<SubjectLabel> batchQueryById(List<Long> categoryIdList) {
         return subjectLabelDao.batchQueryById(categoryIdList);
     }
+
+    /**
+     * 根据条件查询
+     *
+     * @param subjectLabel 条件
+     * @return 返回查询到的结果
+     */
+    @Override
+    public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
+        return subjectLabelDao.queryAllByLimit(subjectLabel);
+    }
 }

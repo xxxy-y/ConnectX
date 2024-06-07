@@ -63,7 +63,6 @@
                 and is_deleted = #{isDeleted}
             </if>
         </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
     </select>
 
     <!--统计总行数-->
@@ -111,7 +110,7 @@
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
         insert into
-        subject_label(label_name,category_id,sort_num,created_by,created_time,update_by,update_time,is_deleted)
+        subject_label(label_name, category_id, sort_num, created_by, created_time, update_by, update_time, is_deleted)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.labelName},#{entity.categoryId},#{entity.sortNum},#{entity.createdBy},#{entity.createdTime},#{entity.updateBy},#{entity.updateTime},#{entity.isDeleted})

@@ -77,4 +77,12 @@ public interface SubjectLabelDao {
      * @return 查询到的标签信息
      */
     List<SubjectLabel> batchQueryById(List<Long> categoryIdList);
+
+    /**
+     * 根据条件查询结果
+     *
+     * @param subjectLabel 查询条件
+     * @return 查询结果
+     */
+    List<SubjectLabel> queryAllByLimit(SubjectLabel subjectLabel);
 }
