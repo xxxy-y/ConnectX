@@ -1,0 +1,2 @@
+1. 使用适配器模式来对文件管理服务进行管理
+2. FileController使用FileService(适配器类)来对StorageService进行抽象

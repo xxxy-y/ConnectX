@@ -1,0 +1,9 @@
+server:
+  port: 4000
+minio:
+  url: http://192.168.17.129:9000
+  access-key: minioadmin
+  secret-key: minioadmin
+storage:
+  service:
+    type: minio

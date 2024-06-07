@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/ConnectX-subject/pom.xml" />
         <option value="$PROJECT_DIR$/Connect-subject/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-oss/pom.xml" />
       </list>
     </option>
   </component>

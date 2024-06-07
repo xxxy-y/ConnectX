@@ -15,6 +15,7 @@
         <module name="ConnectX-subject-starter" />
         <module name="ConnectX-subject-application-controller" />
         <module name="ConnectX-subject-application-job" />
+        <module name="ConnectX-oss" />
         <module name="ConnectX-subject-application" />
       </profile>
     </annotationProcessing>
