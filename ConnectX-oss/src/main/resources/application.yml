@@ -4,15 +4,3 @@ minio:
   url: http://192.168.17.129:9000
   access-key: minioadmin
   secret-key: minioadmin
-nacos:
-  config:
-    server-addr: http://192.168.17.129:8848/
-    access-key: nacos
-    secret-key: nacos
-    data-id: ConnectX-oss
-    group: DEFAULT_GROUP
-    type: yaml
-    auto-refresh: true
-    remote-first: true
-    bootstrap:
-      enable: true

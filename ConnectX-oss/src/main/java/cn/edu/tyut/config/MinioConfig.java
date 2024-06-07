@@ -1,8 +1,7 @@
 package cn.edu.tyut.config;
 
 import io.minio.MinioClient;
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,22 +13,23 @@ import org.springframework.context.annotation.Configuration;
  * @DATE 2024/6/6
  */
 @Configuration
-@Data
-@ConfigurationProperties(prefix = "minio")
 public class MinioConfig {
     /**
      * minio URL
      */
+    @Value("${minio.url}")
     private String url;
 
     /**
      * minio 账户
      */
+    @Value("${minio.access-key}")
     private String accessKey;
 
     /**
      * minio 密码
      */
+    @Value("${minio.secret-key}")
     private String secretKey;
 
     /**

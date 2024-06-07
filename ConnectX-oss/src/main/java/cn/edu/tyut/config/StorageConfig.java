@@ -3,20 +3,25 @@ package cn.edu.tyut.config;
 import cn.edu.tyut.adapter.AliStorageAdapter;
 import cn.edu.tyut.adapter.MinioStorageAdapter;
 import cn.edu.tyut.adapter.StorageAdapter;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * RefreshScope注解用来动态修改生成的Bean，当被该注解修饰的方法或者类中的属性或参数被修改时，会自动修改生成的Bean
+ *
  * @Author 吴庆涛
  * @DATE 2024/6/7
  */
 @Configuration
+@RefreshScope
 public class StorageConfig {
-    @NacosValue(value = "${storage.service.type}", autoRefreshed = true)
+    @Value("${storage.service.type}")
     private String type;
 
     @Bean
+    @RefreshScope
     public StorageAdapter storageService() {
         if ("minio".equals(type)) {
             return new MinioStorageAdapter();

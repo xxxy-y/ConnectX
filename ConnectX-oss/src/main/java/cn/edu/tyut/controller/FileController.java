@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FileController {
     private FileService fileService;
-    @NacosValue(value = "${storage.service.type}", autoRefreshed = true)
-    private String type;
 
     @Autowired
     public void setFileService(FileService fileService) {
@@ -25,10 +23,5 @@ public class FileController {
     @GetMapping("/getAllBuckets")
     public String testGetAllBuckets() {
         return fileService.getAllBucket().toString();
-    }
-
-    @GetMapping("/testNacos")
-    public String testNacos() {
-        return type;
     }
 }
