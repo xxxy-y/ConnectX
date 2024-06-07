@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="fix:不规范名称修改">
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/AliStorageAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/MinioStorageAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/StorageAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/MinioConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/StorageConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/controller/FileController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/entity/FileInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/service/FileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/util/MinioUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:nacos实现属性动态切换，但是编译后的类并不会切换。">
+      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/OssApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-oss/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/StorageConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/StorageConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/controller/FileController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +220,7 @@
       <workItem from="1717667610438" duration="213000" />
       <workItem from="1717667845245" duration="10000" />
       <workItem from="1717667986989" duration="6952000" />
-      <workItem from="1717719744004" duration="5885000" />
+      <workItem from="1717719744004" duration="8516000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -393,7 +382,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717666371836</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="feat:minio oss模块开发，适配器模式改造">
+      <option name="closed" value="true" />
+      <created>1717726850391</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1717726850391</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +415,9 @@
     <MESSAGE value="feat:配置SQL拦截器实现SQL语句自动翻译" />
     <MESSAGE value="feat:jenkins实现项目自动打包部署" />
     <MESSAGE value="fix:不规范名称修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix:不规范名称修改" />
+    <MESSAGE value="feat:minio oss模块开发，适配器模式改造" />
+    <MESSAGE value="feat:nacos实现属性动态切换，但是编译后的类并不会切换。" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:nacos实现属性动态切换，但是编译后的类并不会切换。" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

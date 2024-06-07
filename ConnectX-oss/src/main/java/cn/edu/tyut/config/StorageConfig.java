@@ -3,7 +3,7 @@ package cn.edu.tyut.config;
 import cn.edu.tyut.adapter.AliStorageAdapter;
 import cn.edu.tyut.adapter.MinioStorageAdapter;
 import cn.edu.tyut.adapter.StorageAdapter;
-import org.springframework.beans.factory.annotation.Value;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class StorageConfig {
-    @Value("${storage.service.type}")
+    @NacosValue(value = "${storage.service.type}", autoRefreshed = true)
     private String type;
 
     @Bean

@@ -1,6 +1,8 @@
 package cn.edu.tyut.controller;
 
 import cn.edu.tyut.service.FileService;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FileController {
     private FileService fileService;
+    @NacosValue(value = "${storage.service.type}", autoRefreshed = true)
+    private String type;
 
     @Autowired
     public void setFileService(FileService fileService) {
@@ -21,5 +25,10 @@ public class FileController {
     @GetMapping("/getAllBuckets")
     public String testGetAllBuckets() {
         return fileService.getAllBucket().toString();
+    }
+
+    @GetMapping("/testNacos")
+    public String testNacos() {
+        return type;
     }
 }
