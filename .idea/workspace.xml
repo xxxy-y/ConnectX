@@ -4,33 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:nacos服务注册">
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-starter/src/main/java/cn/edu/tyut/AuthApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-starter/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/GatewayApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-starter/src/main/resources/bootstrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:auth、subject、oss服务注册到nacos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/oss/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-starter/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/OssApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/OssApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/AliStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/AliStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/MinioStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/MinioStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/adapter/StorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/StorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/MinioConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/config/MinioConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/config/StorageConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/config/StorageConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/controller/FileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/entity/FileInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/entity/FileInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/util/MinioUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/util/MinioUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-starter/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,9 +196,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.SubjectApplication" />
         <item itemvalue="Spring Boot.AuthApplication" />
-        <item itemvalue="Spring Boot.GatewayApplication" />
         <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Application.DruidEncryptUtil" />
       </list>
@@ -286,7 +262,7 @@
       <workItem from="1717667986989" duration="6952000" />
       <workItem from="1717719744004" duration="13561000" />
       <workItem from="1717746287027" duration="4002000" />
-      <workItem from="1717813104040" duration="11759000" />
+      <workItem from="1717813104040" duration="12705000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -488,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717835771399</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="feat:auth、subject、oss服务注册到nacos">
+      <option name="closed" value="true" />
+      <created>1717840201213</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1717840201213</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -518,7 +502,8 @@
     <MESSAGE value="feat:nacos实现Bean自动加载" />
     <MESSAGE value="feat:标签业务改动" />
     <MESSAGE value="feat:nacos服务注册" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:nacos服务注册" />
+    <MESSAGE value="feat:auth、subject、oss服务注册到nacos" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:auth、subject、oss服务注册到nacos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
