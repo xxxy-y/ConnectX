@@ -1,0 +1,73 @@
+spring:
+  datasource:
+    dynamic:
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANFlHGwhLdhmxcsJV3ufiEtCY29K5PWoz0+JWrGEVQ0FB9cfgHvXRetimqzc1hK7funk5We0FB9ZQ82s11wEnEcCAwEAAQ==
+      primary: master
+      strict: false
+      datasource:
+        master:
+          username: ENC(Vyt/GMjkoUvtN48YOQCGLqN/YmGlG/AHUY6Yte/zALJOPDK9lGKpkaRX6zGhDmxKBWfNBgImG8skcdeFiZNysw==)
+          password: ENC(TIw2ac46508YEaHuJzn3jaUPc81aX9fx5l2x6YDF73hZub0X3DKzpSdEYBYN1Fd76qpJ+jaWRH3yWN0CpbB9lQ==)
+          url: ENC(t6oJyobqrvKKTtRb8I5EWn78jpsTioFXfnhITgGGQOF5M6POaO3J1PxOndjCx5i75oxWNKn1ywolsKSgaqGKOA==)
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          druid:
+            initial-size: 20
+            min-idle: 20
+            max-active: 100
+            max-wait: 60000
+    druid:
+      username: ENC(Vyt/GMjkoUvtN48YOQCGLqN/YmGlG/AHUY6Yte/zALJOPDK9lGKpkaRX6zGhDmxKBWfNBgImG8skcdeFiZNysw==)
+      password: ENC(TIw2ac46508YEaHuJzn3jaUPc81aX9fx5l2x6YDF73hZub0X3DKzpSdEYBYN1Fd76qpJ+jaWRH3yWN0CpbB9lQ==)
+      url: ENC(t6oJyobqrvKKTtRb8I5EWn78jpsTioFXfnhITgGGQOF5M6POaO3J1PxOndjCx5i75oxWNKn1ywolsKSgaqGKOA==)
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      initial-size: 20
+      min-idle: 20
+      max-active: 100
+      max-wait: 60000
+      # 启用 Druid 的内置监控功能
+      stat-view-servlet:
+        enabled: true
+        # 设置监控页面的访问路径为 /druid/*
+        url-pattern: /druid/*
+        # 设置访问监控页面所需的用户名为 admin
+        login-username: admin
+        # 设置访问监控页面所需的密码为 123456
+        login-password: 123456
+      filter:
+        stat:
+          # 启用 Druid 的统计过滤器，用于收集 SQL 执行的统计信息
+          enabled: true
+          # 启用慢 SQL 日志记录。当 SQL 执行时间超过设定的阈值时，会记录这些 SQL 到日志中
+          log-slow-sql: true
+          # 设置慢 SQL 的时间阈值，单位是毫秒。这里设置为 2000 毫秒，即 2 秒
+          slow-sql-millis: 2000
+        wall:
+          # 启用 Druid 的 SQL 防火墙过滤器，用于防御 SQL 注入攻击
+          enabled: true
+        # 必须先开启config配置，才会读取connection-properties中配置的属性
+#        config:
+#          enabled: true
+logging:
+  config: classpath:log4j2-spring.xml
+#      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBANFlHGwhLdhmxcsJV3ufiEtCY29K5PWoz0+JWrGEVQ0FB9cfgHvXRetimqzc1hK7funk5We0FB9ZQ82s11wEnEcCAwEAAQ==
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 3011
+# sa-token 配置文件
+sa-token:
+  # token 名称（同时也是 cookie 名称）
+  token-name: satoken
+  # token 有效期（单位：秒） 默认30天，-1 代表永久有效
+  timeout: 2592000
+  # token 最低活跃频率（单位：秒），如果 token 超过此时间没有访问系统就会被冻结，默认-1 代表不限制，永不冻结
+  active-timeout: -1
+  # 是否允许同一账号多地同时登录 （为 true 时允许一起登录, 为 false 时新登录挤掉旧登录）
+  is-concurrent: true
+  # 在多人登录同一账号时，是否共用一个 token （为 true 时所有登录共用一个 token, 为 false 时每次登录新建一个 token）
+  is-share: true
+  # token 风格（默认可取值：uuid、simple-uuid、random-32、random-64、random-128、tik）
+  token-style: uuid
+  # 是否输出操作日志
+  is-log: true

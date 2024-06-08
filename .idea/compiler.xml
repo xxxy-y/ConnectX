@@ -7,16 +7,24 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ConnectX-subject-infra" />
-        <module name="ConnectX-subject-api" />
+        <module name="ConnectX-auth-infra" />
         <module name="ConnectX-subject-application-mq" />
-        <module name="ConnectX-subject-common" />
+        <module name="ConnectX-auth-starter" />
+        <module name="ConnectX-auth-application-controller" />
         <module name="ConnectX-subject-domain" />
         <module name="ConnectX-subject-starter" />
         <module name="ConnectX-subject-application-controller" />
         <module name="ConnectX-subject-application-job" />
         <module name="ConnectX-oss" />
         <module name="ConnectX-subject-application" />
+        <module name="ConnectX-auth-common" />
+        <module name="ConnectX-auth-application-mq" />
+        <module name="ConnectX-subject-infra" />
+        <module name="ConnectX-auth-api" />
+        <module name="ConnectX-subject-api" />
+        <module name="ConnectX-subject-common" />
+        <module name="ConnectX-auth-domain" />
+        <module name="ConnectX-auth-application-job" />
       </profile>
     </annotationProcessing>
   </component>

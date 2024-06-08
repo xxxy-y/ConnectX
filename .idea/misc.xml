@@ -7,6 +7,13 @@
         <option value="$PROJECT_DIR$/ConnectX-subject/pom.xml" />
         <option value="$PROJECT_DIR$/Connect-subject/pom.xml" />
         <option value="$PROJECT_DIR$/ConnectX-oss/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-api/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-common/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-starter/pom.xml" />
+        <option value="$PROJECT_DIR$/ConnectX-auth/pom.xml" />
       </list>
     </option>
   </component>
