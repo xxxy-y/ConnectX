@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: ConnectX-gateway
+  # profiles是nacos动态配置需要配置的参数，application的name + profiles的active + . + 指定的文件后缀，结合后面的配置，结果为ConnectX-gateway-dev.yaml
+  # 所以nacos中的配置列表中的Data Id需要为ConnectX-gateway-dev.yaml才能正确读取到
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.17.129:8848
+        # prefix为spring.application.name的值自动加上profiles.active的值，下面的值为ConnectX-gateway-dev.yaml
+        prefix: ${spring.application.name}
+        group: DEFAULT_GROUP
+        # namespace为默认的，所以不填，如果不是默认的，则填对应的值
+        namespace:
+        file-extension: yaml
+      discovery:
+        enabled: true
+        server-addr: 192.168.17.129:8848

@@ -1,8 +1,8 @@
-package cn.edu.tyut.config;
+package cn.edu.tyut.connectx.oss.config;
 
-import cn.edu.tyut.adapter.AliStorageAdapter;
-import cn.edu.tyut.adapter.MinioStorageAdapter;
-import cn.edu.tyut.adapter.StorageAdapter;
+import cn.edu.tyut.connectx.oss.adapter.AliStorageAdapter;
+import cn.edu.tyut.connectx.oss.adapter.MinioStorageAdapter;
+import cn.edu.tyut.connectx.oss.adapter.StorageAdapter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;

@@ -1,0 +1,13 @@
+server:
+  port: 5000
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: oss
+          # lb 代表 loadbalance ：负载均衡，因为使用了负载均衡，所以需要导入spring-cloud-loadbalancer依赖
+          uri: lb://ConnectX-oss
+          predicates:
+            - Path=/oss/**
+          filters:
+            - StripPrefix=1

@@ -1,8 +1,6 @@
-package cn.edu.tyut.controller;
+package cn.edu.tyut.connectx.oss.controller;
 
-import cn.edu.tyut.service.FileService;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
-import lombok.Data;
+import cn.edu.tyut.connectx.oss.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,4 +1,4 @@
-package cn.edu.tyut.config;
+package cn.edu.tyut.connectx.oss.config;
 
 import io.minio.MinioClient;
 import org.springframework.beans.factory.annotation.Value;

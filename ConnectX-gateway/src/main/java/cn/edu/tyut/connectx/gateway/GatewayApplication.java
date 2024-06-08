@@ -1,17 +1,17 @@
-package cn.edu.tyut;
+package cn.edu.tyut.connectx.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * OSS 服务启动器
+ * 网关启动器
  *
  * @Author 吴庆涛
- * @DATE 2024/6/6
+ * @DATE 2024/6/8
  */
 @SpringBootApplication
-public class OssApplication {
+public class GatewayApplication {
     public static void main(String[] args) {
-        SpringApplication.run(OssApplication.class);
+        SpringApplication.run(GatewayApplication.class);
     }
 }

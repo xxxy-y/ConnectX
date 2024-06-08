@@ -1,6 +1,6 @@
-package cn.edu.tyut.adapter;
+package cn.edu.tyut.connectx.oss.adapter;
 
-import cn.edu.tyut.entity.FileInfo;
+import cn.edu.tyut.connectx.oss.entity.FileInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStream;

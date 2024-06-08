@@ -1,6 +1,6 @@
-package cn.edu.tyut.util;
+package cn.edu.tyut.connectx.oss.util;
 
-import cn.edu.tyut.entity.FileInfo;
+import cn.edu.tyut.connectx.oss.entity.FileInfo;
 import io.minio.*;
 import io.minio.messages.Bucket;
 import io.minio.messages.Item;

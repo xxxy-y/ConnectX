@@ -1,4 +1,4 @@
-package cn.edu.tyut.controller;
+package cn.edu.tyut.connectx.oss.controller;
 
 import cn.dev33.satoken.stp.StpUtil;
 import org.springframework.web.bind.annotation.RequestMapping;

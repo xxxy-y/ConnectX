@@ -1,6 +1,6 @@
-package cn.edu.tyut.service;
+package cn.edu.tyut.connectx.oss.service;
 
-import cn.edu.tyut.adapter.StorageAdapter;
+import cn.edu.tyut.connectx.oss.adapter.StorageAdapter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package cn.edu.tyut.entity;
+package cn.edu.tyut.connectx.oss.entity;
 
 import lombok.Data;
 
