@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+
 /**
  * 网关全局异常处理
  *
@@ -35,7 +36,7 @@ public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
         // 获取ServerWebExchange中的响应对象。
         ServerHttpResponse response = serverWebExchange.getResponse();
         int code;
-        String message = "";
+        String message;
 
         // 判断异常类型，如果是SaTokenException，设置状态码为401，表示用户无权限。
         // 否则，设置状态码为500，表示服务器内部错误。

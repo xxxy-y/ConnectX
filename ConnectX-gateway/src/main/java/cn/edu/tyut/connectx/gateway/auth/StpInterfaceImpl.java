@@ -1,9 +1,13 @@
 package cn.edu.tyut.connectx.gateway.auth;
 
 import cn.dev33.satoken.stp.StpInterface;
+import cn.edu.tyut.connectx.gateway.redis.RedisUtil;
+import com.alibaba.fastjson2.JSONArray;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.LinkedList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -12,8 +16,18 @@ import java.util.List;
  * @Author 吴庆涛
  * @DATE 2024/6/12
  */
+
+
 @Component
 public class StpInterfaceImpl implements StpInterface {
+    private final String authPermissionPrefix = "auth.permission";
+    private final String authRolePrefix = "auth.role";
+    private RedisUtil redisUtil;
+
+    @Autowired
+    public void setRedisUtil(RedisUtil redisUtil) {
+        this.redisUtil = redisUtil;
+    }
 
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
@@ -21,17 +35,22 @@ public class StpInterfaceImpl implements StpInterface {
         // 1. 在网关处集成ORM框架，直接从数据库查询数据
         // 2. 先从Redis中获取数据，获取不到时走ORM框架查询数据库
         // 3. 先从Redis中获取缓存数据，获取不到时走RPC调用子服务 (专门的权限数据提供服务::auth模块) 获取 ---- 使用这种服务
-        List<String> permissionList = new LinkedList<>();
-        permissionList.add("user:add");
-        return permissionList;
+        return getAuth(authPermissionPrefix, loginId.toString());
     }
 
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
         // 返回此 loginId 拥有的角色列表
-        List<String> roleList = new LinkedList<>();
-        roleList.add("admin");
-        return roleList;
+        return getAuth(authRolePrefix, loginId.toString());
+    }
+
+    private List<String> getAuth(String prefix, String loginId) {
+        String authKey = redisUtil.buildKey(prefix, loginId);
+        String authValue = redisUtil.get(authKey);
+        if (StringUtils.isBlank(authValue)) {
+            return Collections.emptyList();
+        }
+        return JSONArray.parseArray(authValue, String.class);
     }
 }
 
