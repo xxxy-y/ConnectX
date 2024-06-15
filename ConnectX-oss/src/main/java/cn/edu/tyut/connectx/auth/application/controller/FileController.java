@@ -1,4 +1,4 @@
-package cn.edu.tyut.connectx.oss.controller;
+package cn.edu.tyut.connectx.auth.application.controller;
 
 import cn.edu.tyut.connectx.oss.service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 
 /**
  * dynamic-datasource 解密配置类
- * TODO 将所有的配置类都放在common中吗?
  *
  * @Author 吴庆涛
  * @DATE 2024/5/24
