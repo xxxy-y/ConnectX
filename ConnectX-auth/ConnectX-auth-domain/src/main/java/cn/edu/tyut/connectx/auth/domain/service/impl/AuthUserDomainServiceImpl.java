@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.auth.domain.service.impl;
 
+import cn.dev33.satoken.secure.SaSecureUtil;
 import cn.edu.tyut.connectx.auth.common.enums.AuthUserStatusEnum;
 import cn.edu.tyut.connectx.auth.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.auth.domain.convert.AuthUserBoConvert;
@@ -41,6 +42,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
     @Override
     public Boolean register(AuthUserBo authUserBo) {
         AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
+        authUser.setPassword(SaSecureUtil.md5(authUser.getPassword()));
         authUser.setStatus(AuthUserStatusEnum.OPEN.getCode());
         authUser.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
         Integer count = authUserService.insert(authUser);
