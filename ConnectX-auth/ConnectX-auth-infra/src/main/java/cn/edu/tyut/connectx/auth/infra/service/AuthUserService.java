@@ -22,7 +22,7 @@ public interface AuthUserService {
      * 新增数据
      *
      * @param authUser 实例对象
-     * @return 实例对象
+     * @return 影响行数
      */
     Integer insert(AuthUser authUser);
 
@@ -30,9 +30,9 @@ public interface AuthUserService {
      * 修改数据
      *
      * @param authUser 实例对象
-     * @return 实例对象
+     * @return 影响行数
      */
-    AuthUser update(AuthUser authUser);
+    Integer update(AuthUser authUser);
 
     /**
      * 通过主键删除数据

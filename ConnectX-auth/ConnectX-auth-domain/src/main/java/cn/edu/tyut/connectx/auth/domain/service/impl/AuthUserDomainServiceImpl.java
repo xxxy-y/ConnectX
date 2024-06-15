@@ -8,6 +8,7 @@ import cn.edu.tyut.connectx.auth.domain.service.AuthUserDomainService;
 import cn.edu.tyut.connectx.auth.infra.entity.AuthUser;
 import cn.edu.tyut.connectx.auth.infra.service.AuthUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +44,47 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         authUser.setStatus(AuthUserStatusEnum.OPEN.getCode());
         authUser.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
         Integer count = authUserService.insert(authUser);
+        // 建立一个初步的角色的关联
+        // 要把当前用户的角色和权限都刷到我们的redis中
+        return count > 0;
+    }
+
+    /**
+     * 更新用户信息
+     *
+     * @param authUserBo 用户信息
+     * @return 返回是否更新成功
+     */
+    @Override
+    public Boolean update(AuthUserBo authUserBo) {
+        AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
+        Integer count = authUserService.update(authUser);
+        // 有任何的更新都要与缓存进行同步的修改
+        return count > 0;
+    }
+
+    /**
+     * 删除用户
+     *
+     * @param authUserBo 用户信息
+     * @return 是否删除成功
+     */
+    @Override
+    public Boolean delete(@NotNull AuthUserBo authUserBo) {
+        AuthUser authUser = new AuthUser();
+        authUser.setId(authUserBo.getId());
+        authUser.setIsDeleted(IsDeletedFlagEnum.DELETED.getCode());
+        Integer count = authUserService.update(authUser);
+        // 有任何的更新都要与缓存进行同步的修改
+        return count > 0;
+    }
+
+    @Override
+    public Boolean changeStatus(@NotNull AuthUserBo authUserBo) {
+        AuthUser authUser = new AuthUser();
+        authUser.setId(authUserBo.getId());
+        authUser.setStatus(authUserBo.getStatus());
+        Integer count = authUserService.update(authUser);
         return count > 0;
     }
 }
