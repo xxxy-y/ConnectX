@@ -4,11 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:用户管理模块开发01">
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:用户密码加密">
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/convert/AuthRoleDtoConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/dto/AuthRoleDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/convert/AuthRoleBoConvert.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/entity/AuthRoleBo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthRoleDomainService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthRoleDomainServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/entity/AuthRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/mapper/AuthRoleDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/service/AuthRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/service/impl/AuthRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +81,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AuthApplication.executor": "Run",
+    "Spring Boot.AuthApplication.executor": "Debug",
     "Spring Boot.GatewayApplication.executor": "Run",
     "Spring Boot.OssApplication.executor": "Run",
     "Spring Boot.SubjectApplication.executor": "Run",
@@ -109,10 +119,10 @@
       <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-starter\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="cn.edu.tyut.connectx.auth.common.enums" />
       <recent name="cn.edu.tyut.connectx.auth.domain.entity" />
-      <recent name="cn.edu.tyut.connectx.auth.application.convert" />
       <recent name="cn.edu.tyut.connectx.auth.application.dto" />
+      <recent name="cn.edu.tyut.connectx.auth.common.enums" />
+      <recent name="cn.edu.tyut.connectx.auth.application.convert" />
       <recent name="cn.edu.tyut.connectx.gateway.enums" />
     </key>
   </component>
@@ -125,7 +135,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GatewayApplication">
+  <component name="RunManager" selected="Spring Boot.AuthApplication">
     <configuration name="DruidEncryptUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.edu.tyut.connectx.subject.common.util.DruidEncryptUtil" />
       <module name="ConnectX-subject-infra" />
@@ -203,10 +213,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.AuthApplication" />
         <item itemvalue="Spring Boot.SubjectApplication" />
         <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.AuthApplication" />
         <item itemvalue="Application.DruidEncryptUtil" />
       </list>
     </recent_temporary>
@@ -275,7 +285,8 @@
       <workItem from="1718256094898" duration="6256000" />
       <workItem from="1718287382815" duration="2544000" />
       <workItem from="1718357009207" duration="6810000" />
-      <workItem from="1718430940055" duration="7905000" />
+      <workItem from="1718430940055" duration="8075000" />
+      <workItem from="1718520485926" duration="9044000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -533,14 +544,21 @@
       <option name="project" value="LOCAL" />
       <updated>1718448631385</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="feat:用户密码加密">
+      <option name="closed" value="true" />
+      <created>1718450473422</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1718450473422</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:分类模块开发" />
     <MESSAGE value="feat:标签基础模块开发" />
     <MESSAGE value="fix:标签基础模块开发" />
     <MESSAGE value="feat:添加单选题目模块开发" />
@@ -565,7 +583,8 @@
     <MESSAGE value="feat:gateway实现redis权限数据拉取" />
     <MESSAGE value="feat:用户管理模块开发" />
     <MESSAGE value="feat:用户管理模块开发01" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:用户管理模块开发01" />
+    <MESSAGE value="feat:用户密码加密" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:用户密码加密" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
