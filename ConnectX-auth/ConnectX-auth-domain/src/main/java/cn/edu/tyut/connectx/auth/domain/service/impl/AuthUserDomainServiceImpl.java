@@ -63,7 +63,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
         authUser.setPassword(SaSecureUtil.md5(authUser.getPassword()));
         authUser.setStatus(AuthUserStatusEnum.OPEN.getCode());
-        authUser.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        authUser.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count = authUserService.insert(authUser);
         // 建立一个初步的角色的关联
         AuthRole authRole = new AuthRole();
@@ -74,7 +74,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         AuthUserRole authUserRole = new AuthUserRole();
         authUserRole.setRoleId(authRoleId);
         authUserRole.setUserId(authUserId);
-        authUserRole.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        authUserRole.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count1 = authUserRoleService.insert(authUserRole);
         // 要把当前用户的角色和权限都刷到我们的redis中
         return count > 0 && count1 > 0;

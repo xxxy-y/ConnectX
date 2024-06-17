@@ -13,7 +13,7 @@ import org.jetbrains.annotations.Nullable;
 @Getter
 public enum IsDeletedFlagEnum {
     // 0 未删除   1 已删除
-    UNDELETED(0, "未删除"), DELETED(1, "已删除");
+    UN_DELETED(0, "未删除"), DELETED(1, "已删除");
     private final int code;
     private final String desc;
 

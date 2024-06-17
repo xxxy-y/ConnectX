@@ -31,7 +31,7 @@ public class AuthPermissionDomainServiceImpl implements AuthPermissionDomainServ
     @Override
     public Boolean add(AuthPermissionBo authPermissionBo) {
         AuthPermission authPermission = authPermissionBoConvert.convertAuthPermissionBoToAuthPermission(authPermissionBo);
-        authPermission.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        authPermission.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count = authPermissionService.insert(authPermission);
         return count > 0;
     }

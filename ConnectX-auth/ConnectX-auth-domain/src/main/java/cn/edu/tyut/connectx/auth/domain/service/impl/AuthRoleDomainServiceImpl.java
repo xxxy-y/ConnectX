@@ -40,7 +40,7 @@ public class AuthRoleDomainServiceImpl implements AuthRoleDomainService {
     @Override
     public Boolean add(AuthRoleBo authRoleBo) {
         AuthRole authRole = authRoleBoConvert.convertAuthRoleBoToAuthRole(authRoleBo);
-        authRole.setIsDeleted(IsDeletedFlagEnum.UNDELETED.getCode());
+        authRole.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count = authRoleService.insert(authRole);
         // 这里创建一个角色，不需要与redis做交互
         return count > 0;
