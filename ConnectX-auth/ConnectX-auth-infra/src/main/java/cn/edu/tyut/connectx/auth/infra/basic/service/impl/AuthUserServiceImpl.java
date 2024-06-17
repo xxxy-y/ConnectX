@@ -1,8 +1,8 @@
-package cn.edu.tyut.connectx.auth.infra.service.impl;
+package cn.edu.tyut.connectx.auth.infra.basic.service.impl;
 
-import cn.edu.tyut.connectx.auth.infra.entity.AuthUser;
-import cn.edu.tyut.connectx.auth.infra.mapper.AuthUserDao;
-import cn.edu.tyut.connectx.auth.infra.service.AuthUserService;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUser;
+import cn.edu.tyut.connectx.auth.infra.basic.mapper.AuthUserDao;
+import cn.edu.tyut.connectx.auth.infra.basic.service.AuthUserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

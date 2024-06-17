@@ -1,6 +1,6 @@
-package cn.edu.tyut.connectx.auth.infra.service;
+package cn.edu.tyut.connectx.auth.infra.basic.service;
 
-import cn.edu.tyut.connectx.auth.infra.entity.AuthUser;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUser;
 
 /**
  * 用户表(AuthUser)表服务接口

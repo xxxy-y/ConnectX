@@ -1,7 +1,7 @@
 package cn.edu.tyut.connectx.auth.domain.convert;
 
 import cn.edu.tyut.connectx.auth.domain.entity.AuthUserBo;
-import cn.edu.tyut.connectx.auth.infra.entity.AuthUser;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUser;
 import org.mapstruct.Mapper;
 
 /**

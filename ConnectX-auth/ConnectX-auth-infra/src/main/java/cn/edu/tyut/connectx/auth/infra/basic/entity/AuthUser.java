@@ -1,4 +1,4 @@
-package cn.edu.tyut.connectx.auth.infra.entity;
+package cn.edu.tyut.connectx.auth.infra.basic.entity;
 
 import lombok.Data;
 

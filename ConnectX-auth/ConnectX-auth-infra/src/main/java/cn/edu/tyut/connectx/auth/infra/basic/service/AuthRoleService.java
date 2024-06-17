@@ -1,6 +1,8 @@
-package cn.edu.tyut.connectx.auth.infra.service;
+package cn.edu.tyut.connectx.auth.infra.basic.service;
 
-import cn.edu.tyut.connectx.auth.infra.entity.AuthRole;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
+
+import java.util.List;
 
 /**
  * 角色表(AuthRole)表服务接口
@@ -21,7 +23,7 @@ public interface AuthRoleService {
     /**
      * 分页查询
      *
-     * @param authRole    筛选条件
+     * @param authRole 筛选条件
      */
     void queryByPage(AuthRole authRole);
 
@@ -48,4 +50,12 @@ public interface AuthRoleService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+    /**
+     * 根据条件查询满足条件的角色
+     *
+     * @param authRole 条件
+     * @return 返回结果
+     */
+    List<AuthRole> queryByCondition(AuthRole authRole);
 }

@@ -1,7 +1,7 @@
 package cn.edu.tyut.connectx.auth.domain.convert;
 
 import cn.edu.tyut.connectx.auth.domain.entity.AuthRoleBo;
-import cn.edu.tyut.connectx.auth.infra.entity.AuthRole;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
 import org.mapstruct.Mapper;
 
 /**

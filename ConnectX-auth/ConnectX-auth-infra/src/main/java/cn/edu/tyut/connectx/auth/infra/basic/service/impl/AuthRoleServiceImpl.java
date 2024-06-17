@@ -1,11 +1,12 @@
-package cn.edu.tyut.connectx.auth.infra.service.impl;
+package cn.edu.tyut.connectx.auth.infra.basic.service.impl;
 
-import cn.edu.tyut.connectx.auth.infra.entity.AuthRole;
-import cn.edu.tyut.connectx.auth.infra.mapper.AuthRoleDao;
-import cn.edu.tyut.connectx.auth.infra.service.AuthRoleService;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
+import cn.edu.tyut.connectx.auth.infra.basic.mapper.AuthRoleDao;
+import cn.edu.tyut.connectx.auth.infra.basic.service.AuthRoleService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 角色表(AuthRole)表服务实现类
@@ -70,5 +71,10 @@ public class AuthRoleServiceImpl implements AuthRoleService {
     @Override
     public boolean deleteById(Long id) {
         return this.authRoleDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<AuthRole> queryByCondition(AuthRole authRole) {
+        return authRoleDao.queryAllByLimit(authRole);
     }
 }
