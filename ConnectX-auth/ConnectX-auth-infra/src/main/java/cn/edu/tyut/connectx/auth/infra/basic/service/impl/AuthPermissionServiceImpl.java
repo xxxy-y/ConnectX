@@ -6,6 +6,7 @@ import cn.edu.tyut.connectx.auth.infra.basic.service.AuthPermissionService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 权限表(AuthPermission)表服务实现类
@@ -60,5 +61,10 @@ public class AuthPermissionServiceImpl implements AuthPermissionService {
     @Override
     public boolean deleteById(Long id) {
         return this.authPermissionDao.deleteById(id) > 0;
+    }
+
+    @Override
+    public List<AuthPermission> queryByPermissionList(List<Long> permissionIdList) {
+        return this.authPermissionDao.queryByPermissionIds(permissionIdList);
     }
 }

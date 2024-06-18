@@ -91,6 +91,14 @@
             </if>
         </where>
     </select>
+    <select id="queryByRoleList" resultMap="AuthRoleMap">
+        select *
+        from auth_role
+        where id in
+        <foreach collection="ids" item="id" open="(" close=")" separator=",">
+            #{id}
+        </foreach>
+    </select>
 
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">

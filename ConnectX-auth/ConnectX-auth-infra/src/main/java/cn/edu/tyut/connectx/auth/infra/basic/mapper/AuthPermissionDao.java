@@ -2,7 +2,6 @@ package cn.edu.tyut.connectx.auth.infra.basic.mapper;
 
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthPermission;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -78,5 +77,12 @@ public interface AuthPermissionDao {
      */
     int deleteById(Long id);
 
+    /**
+     * 批量查询
+     *
+     * @param permissionIdList permission id
+     * @return 查询到的permission
+     */
+    List<AuthPermission> queryByPermissionIds(@Param("ids") List<Long> permissionIdList);
 }
 

@@ -58,4 +58,12 @@ public interface AuthRoleService {
      * @return 返回结果
      */
     List<AuthRole> queryByCondition(AuthRole authRole);
+
+    /**
+     * 根据 role id 查询出角色信息
+     *
+     * @param roleIdList role id
+     * @return 角色信息
+     */
+    List<AuthRole> queryByRoleList(List<Long> roleIdList);
 }

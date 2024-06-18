@@ -6,19 +6,24 @@ import cn.edu.tyut.connectx.auth.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.auth.domain.constants.AuthConstant;
 import cn.edu.tyut.connectx.auth.domain.convert.AuthUserBoConvert;
 import cn.edu.tyut.connectx.auth.domain.entity.AuthUserBo;
+import cn.edu.tyut.connectx.auth.domain.redis.RedisUtil;
 import cn.edu.tyut.connectx.auth.domain.service.AuthUserDomainService;
-import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
-import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUser;
-import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUserRole;
+import cn.edu.tyut.connectx.auth.infra.basic.entity.*;
 import cn.edu.tyut.connectx.auth.infra.basic.service.AuthRoleService;
 import cn.edu.tyut.connectx.auth.infra.basic.service.AuthUserRoleService;
 import cn.edu.tyut.connectx.auth.infra.basic.service.AuthUserService;
+import cn.edu.tyut.connectx.auth.infra.basic.service.impl.AuthPermissionServiceImpl;
+import cn.edu.tyut.connectx.auth.infra.basic.service.impl.AuthRolePermissionServiceImpl;
+import com.alibaba.fastjson2.JSON;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author 吴庆涛
@@ -27,10 +32,30 @@ import java.util.List;
 @Service
 @Slf4j
 public class AuthUserDomainServiceImpl implements AuthUserDomainService {
+    private final String authPermissionPrefix = "auth:permission";
+    private final String authRolePrefix = "auth:role";
     private AuthUserService authUserService;
     private AuthUserBoConvert authUserBoConvert;
     private AuthRoleService authRoleService;
     private AuthUserRoleService authUserRoleService;
+    private RedisUtil redisUtil;
+    private AuthRolePermissionServiceImpl authRolePermissionService;
+    private AuthPermissionServiceImpl authPermissionService;
+
+    @Autowired
+    public void setAuthPermissionService(AuthPermissionServiceImpl authPermissionService) {
+        this.authPermissionService = authPermissionService;
+    }
+
+    @Autowired
+    public void setAuthRolePermissionService(AuthRolePermissionServiceImpl authRolePermissionService) {
+        this.authRolePermissionService = authRolePermissionService;
+    }
+
+    @Autowired
+    public void setRedisUtil(RedisUtil redisUtil) {
+        this.redisUtil = redisUtil;
+    }
 
     @Autowired
     public void setAuthUserService(AuthUserService authUserService) {
@@ -58,6 +83,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
      * @param authUserBo 用户信息
      * @return 返回成功与否
      */
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public Boolean register(AuthUserBo authUserBo) {
         AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
@@ -76,7 +102,25 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         authUserRole.setUserId(authUserId);
         authUserRole.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count1 = authUserRoleService.insert(authUserRole);
+
         // 要把当前用户的角色和权限都刷到我们的redis中
+        // 将当前用户的角色刷到我们的redis中，可能一个用户有多个角色
+        String roleKey = redisUtil.buildKey(authRolePrefix, authUser.getUserName());
+        List<AuthRole> roleList = new LinkedList<>();
+        roleList.add(authRole);
+        // 将一个用户的角色信息存入redis  auth:role:username  normal_user
+        redisUtil.set(roleKey, JSON.toJSONString(roleList));
+
+        AuthRolePermission authRolePermission = new AuthRolePermission();
+        authRolePermission.setRoleId(authRoleId);
+        // 获得多条角色权限关系表
+        List<AuthRolePermission> authRolePermissionList = authRolePermissionService.queryByCondition(authRolePermission);
+
+        List<Long> permissionIdList = authRolePermissionList.stream().map(AuthRolePermission::getPermissionId).collect(Collectors.toList());
+        // 根据permission id查询权限信息
+        List<AuthPermission> authPermissionList = authPermissionService.queryByPermissionList(permissionIdList);
+        String permissionKey = redisUtil.buildKey(authPermissionPrefix, authUser.getUserName());
+        redisUtil.set(permissionKey, JSON.toJSONString(authPermissionList));
         return count > 0 && count1 > 0;
     }
 

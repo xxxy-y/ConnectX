@@ -162,6 +162,5 @@
         from auth_role_permission
         where id = #{id}
     </delete>
-
 </mapper>
 

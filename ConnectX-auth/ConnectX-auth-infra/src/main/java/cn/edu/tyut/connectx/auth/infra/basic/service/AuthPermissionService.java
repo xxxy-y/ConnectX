@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.auth.infra.basic.service;
 
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthPermission;
 
+import java.util.List;
+
 /**
  * 权限表(AuthPermission)表服务接口
  *
@@ -41,4 +43,12 @@ public interface AuthPermissionService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+    /**
+     * 批量查询permission
+     *
+     * @param permissionIdList permission id
+     * @return 返回查询到的权限信息
+     */
+    List<AuthPermission> queryByPermissionList(List<Long> permissionIdList);
 }

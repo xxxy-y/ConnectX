@@ -4,25 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:权限模块开发">
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/RolePermissionController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/convert/AuthRolePermissionDtoConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/dto/AuthRolePermissionDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/convert/AuthRolePermissionBoConvert.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/entity/AuthRolePermissionBo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthRolePermissionDomainService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthRolePermissionDomainServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/entity/AuthRolePermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthRolePermissionDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthRolePermissionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthRolePermissionServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRolePermissionDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:角色权限模块开发">
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/redis/RedisUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/entity/AuthPermission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/entity/AuthRole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-common/src/main/java/cn/edu/tyut/connectx/auth/common/enums/IsDeletedFlagEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-common/src/main/java/cn/edu/tyut/connectx/auth/common/enums/IsDeletedFlagEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthPermissionDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthPermissionDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthRoleDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthRoleDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthPermissionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthPermissionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthRoleDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthRoleDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthRolePermissionDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/mapper/AuthRolePermissionDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthPermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthPermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthRolePermissionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthRolePermissionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthRoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthRoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthPermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthPermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthRolePermissionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthRolePermissionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthRoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/impl/AuthRoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthPermissionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthPermissionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRoleDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRoleDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRolePermissionDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/resources/mapper/AuthRolePermissionDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/StpInterfaceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/StpInterfaceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,14 +87,14 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AuthApplication.executor": "Run",
-    "Spring Boot.GatewayApplication.executor": "Run",
-    "Spring Boot.OssApplication.executor": "Run",
-    "Spring Boot.SubjectApplication.executor": "Run",
+    "Spring Boot.AuthApplication.executor": "Debug",
+    "Spring Boot.GatewayApplication.executor": "Debug",
+    "Spring Boot.OssApplication.executor": "Debug",
+    "Spring Boot.SubjectApplication.executor": "Debug",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/code/ConnectX/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra",
+    "last_opened_file_path": "C:/code/ConnectX/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/entity",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -116,11 +118,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\code\ConnectX\ConnectX-gateway\src\main\java\cn\edu\tyut\connectx\gateway\entity" />
+      <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-domain\src\main\java\cn\edu\tyut\connectx\auth\domain" />
       <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-infra\src\main\java\cn\edu\tyut\connectx\auth\infra" />
       <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-common\src\main\java\cn\edu\tyut\connectx\auth\common" />
       <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-application\ConnectX-auth-application-controller\src\main\java\cn\edu\tyut\connectx\auth\application" />
-      <recent name="C:\code\ConnectX\ConnectX-subject\ConnectX-subject-starter\src\main\resources" />
-      <recent name="C:\code\ConnectX\ConnectX-auth\ConnectX-auth-starter\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="cn.edu.tyut.connectx.auth.domain.entity" />
@@ -217,10 +219,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.AuthApplication" />
         <item itemvalue="Spring Boot.SubjectApplication" />
         <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="Spring Boot.AuthApplication" />
         <item itemvalue="Application.DruidEncryptUtil" />
       </list>
     </recent_temporary>
@@ -291,7 +293,11 @@
       <workItem from="1718357009207" duration="6810000" />
       <workItem from="1718430940055" duration="8075000" />
       <workItem from="1718520485926" duration="13219000" />
-      <workItem from="1718589818790" duration="10044000" />
+      <workItem from="1718589818790" duration="18976000" />
+      <workItem from="1718686099943" duration="1156000" />
+      <workItem from="1718694033330" duration="1055000" />
+      <workItem from="1718701284632" duration="320000" />
+      <workItem from="1718701615843" duration="5903000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -581,14 +587,21 @@
       <option name="project" value="LOCAL" />
       <updated>1718595712371</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="feat:角色权限模块开发">
+      <option name="closed" value="true" />
+      <created>1718611270080</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1718611270080</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:封装分页PageInfo、PageResult" />
     <MESSAGE value="feat:工厂+策略模式实现题目分别处理" />
     <MESSAGE value="feat:分页查询处理 fix:在info表中插入数据时，会发生is_deleted不会自动设置为0，还有radio表等那几个题目答案表。" />
     <MESSAGE value="feat:新增题目接口测试" />
@@ -613,19 +626,16 @@
     <MESSAGE value="feat:角色模块开发" />
     <MESSAGE value="feat:用户角色关联" />
     <MESSAGE value="feat:权限模块开发" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:权限模块开发" />
+    <MESSAGE value="feat:角色权限模块开发" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:角色权限模块开发" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-infra/src/main/java/cn/edu/tyut/connectx/auth/infra/basic/service/AuthPermissionService.java</url>
-          <line>26</line>
-          <properties class="cn.edu.tyut.connectx.auth.infra.basic.service.AuthPermissionService" method="insert">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/StpInterfaceImpl.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

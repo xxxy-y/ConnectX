@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.auth.infra.basic.mapper;
 
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRolePermission;
 import org.apache.ibatis.annotations.Param;
 
@@ -77,6 +78,5 @@ public interface AuthRolePermissionDao {
      * @return 影响行数
      */
     int deleteById(Long id);
-
 }
 

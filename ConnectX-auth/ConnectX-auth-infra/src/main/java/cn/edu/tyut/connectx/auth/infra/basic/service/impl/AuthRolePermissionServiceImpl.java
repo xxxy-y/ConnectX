@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.auth.infra.basic.service.impl;
 
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRolePermission;
 import cn.edu.tyut.connectx.auth.infra.basic.mapper.AuthRolePermissionDao;
 import cn.edu.tyut.connectx.auth.infra.basic.service.AuthRolePermissionService;
@@ -73,5 +74,16 @@ public class AuthRolePermissionServiceImpl implements AuthRolePermissionService 
     @Override
     public boolean deleteById(Long id) {
         return this.authRolePermissionDao.deleteById(id) > 0;
+    }
+
+    /**
+     * 根据条件查询
+     *
+     * @param authRolePermission 条件
+     * @return 查询结果
+     */
+    @Override
+    public List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission) {
+        return authRolePermissionDao.queryAllByLimit(authRolePermission);
     }
 }

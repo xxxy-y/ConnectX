@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.auth.infra.basic.service;
 
+import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRole;
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthRolePermission;
 
 import java.util.List;
@@ -52,4 +53,11 @@ public interface AuthRolePermissionService {
      */
     boolean deleteById(Long id);
 
+    /**
+     * 根据条件查询
+     *
+     * @param authRolePermission 条件
+     * @return 查询结果
+     */
+    List<AuthRolePermission> queryByCondition(AuthRolePermission authRolePermission);
 }
