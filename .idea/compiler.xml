@@ -13,6 +13,7 @@
         <module name="ConnectX-auth-starter" />
         <module name="ConnectX-auth-application-controller" />
         <module name="ConnectX-subject-domain" />
+        <module name="ConnectX-wx" />
         <module name="ConnectX-subject-starter" />
         <module name="ConnectX-subject-application-controller" />
         <module name="ConnectX-subject-application-job" />
