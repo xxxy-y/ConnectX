@@ -35,7 +35,7 @@ public interface StorageAdapter {
      * @param objectName    文件名称
      * @return Boolean 是否成功上传文件
      */
-    Boolean updateFile(MultipartFile multipartFile, String bucketName, String objectName);
+    Boolean uploadFile(MultipartFile multipartFile, String bucketName, String objectName);
 
     /**
      * 下载文件
@@ -68,4 +68,13 @@ public interface StorageAdapter {
      * @param objectName 文件名称
      */
     void deleteObject(String bucketName, String objectName);
+
+    /**
+     * 获取文件的url
+     *
+     * @param bucketName 桶的名称
+     * @param objectName 文件名称
+     * @return 返回对应文件的url
+     */
+    String getUrl(String bucketName, String objectName);
 }

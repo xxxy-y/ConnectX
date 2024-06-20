@@ -22,7 +22,7 @@ public class AliStorageAdapter implements StorageAdapter {
     }
 
     @Override
-    public Boolean updateFile(MultipartFile multipartFile, String bucketName, String objectName) {
+    public Boolean uploadFile(MultipartFile multipartFile, String bucketName, String objectName) {
         return null;
     }
 
@@ -45,4 +45,10 @@ public class AliStorageAdapter implements StorageAdapter {
     public void deleteObject(String bucketName, String objectName) {
 
     }
+
+    @Override
+    public String getUrl(String bucketName, String objectName) {
+        return "";
+    }
+
 }

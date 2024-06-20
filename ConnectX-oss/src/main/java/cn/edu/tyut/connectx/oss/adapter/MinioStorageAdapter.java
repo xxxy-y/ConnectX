@@ -3,6 +3,7 @@ package cn.edu.tyut.connectx.oss.adapter;
 import cn.edu.tyut.connectx.oss.entity.FileInfo;
 import cn.edu.tyut.connectx.oss.util.MinioUtil;
 import lombok.SneakyThrows;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -16,6 +17,9 @@ import java.util.List;
 public class MinioStorageAdapter implements StorageAdapter {
     @Resource
     private MinioUtil minioUtil;
+
+    @Value("${minio.url}")
+    private String url;
 
     @Override
     @SneakyThrows
@@ -31,7 +35,7 @@ public class MinioStorageAdapter implements StorageAdapter {
 
     @Override
     @SneakyThrows
-    public Boolean updateFile(MultipartFile multipartFile, String bucketName, String objectName) {
+    public Boolean uploadFile(MultipartFile multipartFile, String bucketName, String objectName) {
         minioUtil.createBucket(bucketName);
         if (objectName != null) {
             return minioUtil.updateFile(multipartFile.getInputStream(), bucketName, objectName + "/" + multipartFile.getName());
@@ -62,5 +66,11 @@ public class MinioStorageAdapter implements StorageAdapter {
     @SneakyThrows
     public void deleteObject(String bucketName, String objectName) {
         minioUtil.deleteObject(bucketName, objectName);
+    }
+
+    @Override
+    @SneakyThrows
+    public String getUrl(String bucket, String objectName) {
+        return url + "/" + bucket + "/" + objectName;
     }
 }
