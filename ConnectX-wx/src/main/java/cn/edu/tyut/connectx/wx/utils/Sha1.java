@@ -23,12 +23,13 @@ public class Sha1 {
      * @return 安全签名
      */
     public static String getSha1(String token, String timestamp, String nonce, String encrypt) {
+        int num = 4;
         try {
             String[] array = new String[]{token, timestamp, nonce, encrypt};
             StringBuilder sb = new StringBuilder();
             // 字符串排序
             Arrays.sort(array);
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < num; i++) {
                 sb.append(array[i]);
             }
             String str = sb.toString();
@@ -38,7 +39,7 @@ public class Sha1 {
             byte[] digest = md.digest();
 
             StringBuilder hexStr = new StringBuilder();
-            String shaHex = "";
+            String shaHex;
             for (byte b : digest) {
                 shaHex = Integer.toHexString(b & 0xFF);
                 if (shaHex.length() < 2) {

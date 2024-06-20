@@ -3,6 +3,8 @@ package cn.edu.tyut.connectx.wx.utils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -16,6 +18,8 @@ import java.util.Map;
  * @DATE 2024/6/19
  */
 public class MessageUtil {
+    private static final Logger log = LoggerFactory.getLogger(MessageUtil.class);
+
     /**
      * 解析微信发来的请求（XML）.
      *
@@ -24,7 +28,7 @@ public class MessageUtil {
      */
     public static Map<String, String> parseXml(final String msg) {
         // 将解析结果存储在HashMap中
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>(16);
         // 从request中取得输入流
         try (InputStream inputStream = new ByteArrayInputStream(msg.getBytes(StandardCharsets.UTF_8))) {
             // 读取输入流
@@ -39,7 +43,7 @@ public class MessageUtil {
                 map.put(e.getName(), e.getText());
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("解析微信服务器传来的xml error", e);
         }
         return map;
     }
