@@ -1,11 +1,14 @@
 package cn.edu.tyut.connectx.auth.domain.service.impl;
 
 import cn.dev33.satoken.secure.SaSecureUtil;
+import cn.dev33.satoken.stp.SaTokenInfo;
+import cn.dev33.satoken.stp.StpUtil;
 import cn.edu.tyut.connectx.auth.common.enums.AuthUserStatusEnum;
 import cn.edu.tyut.connectx.auth.common.enums.IsDeletedFlagEnum;
 import cn.edu.tyut.connectx.auth.domain.constants.AuthConstant;
 import cn.edu.tyut.connectx.auth.domain.convert.AuthUserBoConvert;
 import cn.edu.tyut.connectx.auth.domain.entity.AuthUserBo;
+import cn.edu.tyut.connectx.auth.domain.entity.AuthUserRoleBo;
 import cn.edu.tyut.connectx.auth.domain.redis.RedisUtil;
 import cn.edu.tyut.connectx.auth.domain.service.AuthUserDomainService;
 import cn.edu.tyut.connectx.auth.infra.basic.entity.*;
@@ -15,7 +18,9 @@ import cn.edu.tyut.connectx.auth.infra.basic.service.AuthUserService;
 import cn.edu.tyut.connectx.auth.infra.basic.service.impl.AuthPermissionServiceImpl;
 import cn.edu.tyut.connectx.auth.infra.basic.service.impl.AuthRolePermissionServiceImpl;
 import com.alibaba.fastjson2.JSON;
+import io.netty.util.internal.StringUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,8 +37,9 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class AuthUserDomainServiceImpl implements AuthUserDomainService {
-    private final String authPermissionPrefix = "auth:permission";
-    private final String authRolePrefix = "auth:role";
+    private static final String AUTH_PERMISSION_PREFIX = "auth:permission";
+    private static final String AUTH_ROLE_PREFIX = "auth:role";
+    private static final String LOGIN_PREFIX = "loginCode";
     private AuthUserService authUserService;
     private AuthUserBoConvert authUserBoConvert;
     private AuthRoleService authRoleService;
@@ -87,7 +93,9 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
     @Override
     public Boolean register(AuthUserBo authUserBo) {
         AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
-        authUser.setPassword(SaSecureUtil.md5(authUser.getPassword()));
+        if (!StringUtils.isBlank(authUser.getPassword())) {
+            authUser.setPassword(SaSecureUtil.md5(authUser.getPassword()));
+        }
         authUser.setStatus(AuthUserStatusEnum.OPEN.getCode());
         authUser.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         Integer count = authUserService.insert(authUser);
@@ -105,7 +113,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
 
         // 要把当前用户的角色和权限都刷到我们的redis中
         // 将当前用户的角色刷到我们的redis中，可能一个用户有多个角色
-        String roleKey = redisUtil.buildKey(authRolePrefix, authUser.getUserName());
+        String roleKey = redisUtil.buildKey(AUTH_ROLE_PREFIX, authUser.getUserName());
         List<AuthRole> roleList = new LinkedList<>();
         roleList.add(authRole);
         // 将一个用户的角色信息存入redis  auth:role:username  normal_user
@@ -119,7 +127,7 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         List<Long> permissionIdList = authRolePermissionList.stream().map(AuthRolePermission::getPermissionId).collect(Collectors.toList());
         // 根据permission id查询权限信息
         List<AuthPermission> authPermissionList = authPermissionService.queryByPermissionList(permissionIdList);
-        String permissionKey = redisUtil.buildKey(authPermissionPrefix, authUser.getUserName());
+        String permissionKey = redisUtil.buildKey(AUTH_PERMISSION_PREFIX, authUser.getUserName());
         redisUtil.set(permissionKey, JSON.toJSONString(authPermissionList));
         return count > 0 && count1 > 0;
     }
@@ -161,5 +169,25 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
         authUser.setStatus(authUserBo.getStatus());
         Integer count = authUserService.update(authUser);
         return count > 0;
+    }
+
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public SaTokenInfo doLogin(String validCode) {
+        String loginKey = redisUtil.buildKey(LOGIN_PREFIX, validCode);
+        String openId = redisUtil.get(loginKey);
+        if (StringUtils.isBlank(openId)) {
+            log.error("AuthUserDomainServiceImpl:doLogin: ----> openId为空");
+            return null;
+        }
+        AuthUserBo authUserBo = new AuthUserBo();
+        authUserBo.setUserName(openId);
+        Boolean flag = register(authUserBo);
+        if (flag) {
+            StpUtil.login(openId);
+            return StpUtil.getTokenInfo();
+        }
+        log.info("AuthUserDomainServiceImpl:doLogin: ----> 用户注册失败");
+        return null;
     }
 }

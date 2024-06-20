@@ -4,24 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:网关与auth微服务缓存打通">
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/WxApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/controller/CallbackController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/ReceiveTextMsgHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/SubscribeMsgHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/WeChatMsgFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/WeChatMsgHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/WeChatMsgTypeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/redis/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/redis/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/utils/MessageUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/utils/Sha1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:微信公众号消息事件监听，策略模式实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthUserDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthUserDomainService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/ReceiveTextMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/ReceiveTextMsgHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +44,9 @@
     &quot;accountId&quot;: &quot;8cd32f14-6339-49a8-8dcf-1de9023887de&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -85,11 +77,11 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.AuthApplication.executor": "Debug",
-    "Spring Boot.GatewayApplication.executor": "Debug",
+    "Spring Boot.AuthApplication.executor": "Run",
+    "Spring Boot.GatewayApplication.executor": "Run",
     "Spring Boot.Main.executor": "Run",
-    "Spring Boot.OssApplication.executor": "Debug",
-    "Spring Boot.SubjectApplication.executor": "Debug",
+    "Spring Boot.OssApplication.executor": "Run",
+    "Spring Boot.SubjectApplication.executor": "Run",
     "Spring Boot.WxApplication.executor": "Run",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "main",
@@ -100,7 +92,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.2354049",
     "project.structure.side.proportion": "0.31954023",
     "run.configurations.included.in.services": "true",
@@ -213,10 +205,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.WxApplication" />
-        <item itemvalue="Spring Boot.SubjectApplication" />
-        <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
+        <item itemvalue="Spring Boot.OssApplication" />
+        <item itemvalue="Spring Boot.SubjectApplication" />
+        <item itemvalue="Spring Boot.WxApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -291,7 +283,8 @@
       <workItem from="1718694033330" duration="1055000" />
       <workItem from="1718701284632" duration="320000" />
       <workItem from="1718701615843" duration="7862000" />
-      <workItem from="1718774950042" duration="20680000" />
+      <workItem from="1718774950042" duration="20815000" />
+      <workItem from="1718849151629" duration="4828000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -597,14 +590,21 @@
       <option name="project" value="LOCAL" />
       <updated>1718710089139</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="feat:微信公众号消息事件监听，策略模式实现">
+      <option name="closed" value="true" />
+      <created>1718803255402</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1718803255402</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:分页查询处理 fix:在info表中插入数据时，会发生is_deleted不会自动设置为0，还有radio表等那几个题目答案表。" />
     <MESSAGE value="feat:新增题目接口测试" />
     <MESSAGE value="feat:全局空值处理" />
     <MESSAGE value="feat:查询题目详情实现" />
@@ -629,7 +629,8 @@
     <MESSAGE value="feat:权限模块开发" />
     <MESSAGE value="feat:角色权限模块开发" />
     <MESSAGE value="feat:网关与auth微服务缓存打通" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:网关与auth微服务缓存打通" />
+    <MESSAGE value="feat:微信公众号消息事件监听，策略模式实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:微信公众号消息事件监听，策略模式实现" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

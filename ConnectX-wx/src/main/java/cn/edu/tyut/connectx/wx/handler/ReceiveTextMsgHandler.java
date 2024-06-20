@@ -18,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class ReceiveTextMsgHandler implements WeChatMsgHandler {
     private static final String KEY_WORD = "验证码";
+    private static final String LOGIN_PREFIX = "loginCode";
     private RedisUtil redisUtil;
 
     @Autowired
@@ -39,8 +40,8 @@ public class ReceiveTextMsgHandler implements WeChatMsgHandler {
         String fromUserName = messageMap.get("FromUserName");
         String content = messageMap.get("Content");
         String numContent = String.format("%04d", new Random().nextInt(10000));
-        String numKey = redisUtil.buildKey(fromUserName, String.valueOf(numContent));
-        Boolean b = redisUtil.setNx(numKey, "1", 5L, TimeUnit.MINUTES);
+        String numKey = redisUtil.buildKey(LOGIN_PREFIX, String.valueOf(numContent));
+        Boolean b = redisUtil.setNx(numKey, fromUserName, 5L, TimeUnit.MINUTES);
         if (!b) {
             throw new RuntimeException("redis新增失败");
         }

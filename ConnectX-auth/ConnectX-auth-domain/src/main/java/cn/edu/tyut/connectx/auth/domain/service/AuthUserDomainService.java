@@ -1,5 +1,6 @@
 package cn.edu.tyut.connectx.auth.domain.service;
 
+import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.edu.tyut.connectx.auth.domain.entity.AuthUserBo;
 
 /**
@@ -38,4 +39,12 @@ public interface AuthUserDomainService {
      * @return 返回是否成功
      */
     Boolean changeStatus(AuthUserBo authUserBo);
+
+    /**
+     * 根据验证码获取到登录信息
+     *
+     * @param validCode 验证码
+     * @return 返回登录信息
+     */
+    SaTokenInfo doLogin(String validCode);
 }
