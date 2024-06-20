@@ -89,7 +89,14 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
      */
     @Transactional(rollbackFor = Exception.class)
     @Override
-    public Boolean register(AuthUserBo authUserBo) {
+    public Boolean register(@NotNull AuthUserBo authUserBo) {
+        // 校验用户是否已经在redis中存在
+        AuthUser exitAuthUser = new AuthUser();
+        exitAuthUser.setUserName(authUserBo.getUserName());
+        List<AuthUser> authUserList = authUserService.queryByCondition(exitAuthUser);
+        if (!authUserList.isEmpty()) {
+            return true;
+        }
         AuthUser authUser = authUserBoConvert.convertAuthUserBoToAuthUser(authUserBo);
         if (!StringUtils.isBlank(authUser.getPassword())) {
             authUser.setPassword(SaSecureUtil.md5(authUser.getPassword()));
@@ -185,7 +192,18 @@ public class AuthUserDomainServiceImpl implements AuthUserDomainService {
             StpUtil.login(openId);
             return StpUtil.getTokenInfo();
         }
-        log.info("AuthUserDomainServiceImpl:doLogin: ----> 用户注册失败");
         return null;
+    }
+
+    @Override
+    public AuthUserBo getUserInfo(AuthUserBo authUserBo) {
+        AuthUser authUser = new AuthUser();
+        authUser.setUserName(authUserBo.getUserName());
+        List<AuthUser> authUserList = authUserService.queryByCondition(authUser);
+        if (!authUserList.isEmpty()) {
+            authUser = authUserList.get(0);
+            return authUserBoConvert.convertAuthUserToAuthUserBo(authUser);
+        }
+        return new AuthUserBo();
     }
 }

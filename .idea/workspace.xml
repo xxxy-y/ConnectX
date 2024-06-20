@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:微信公众号消息事件监听，策略模式实现">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthUserDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/AuthUserDomainService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-domain/src/main/java/cn/edu/tyut/connectx/auth/domain/service/impl/AuthUserDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/ReceiveTextMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-wx/src/main/java/cn/edu/tyut/connectx/wx/handler/ReceiveTextMsgHandler.java" afterDir="false" />
-    </list>
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:微信公众号登录验证码逻辑" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -205,10 +198,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.GatewayApplication" />
-        <item itemvalue="Spring Boot.OssApplication" />
-        <item itemvalue="Spring Boot.SubjectApplication" />
         <item itemvalue="Spring Boot.WxApplication" />
+        <item itemvalue="Spring Boot.SubjectApplication" />
+        <item itemvalue="Spring Boot.OssApplication" />
+        <item itemvalue="Spring Boot.GatewayApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +277,7 @@
       <workItem from="1718701284632" duration="320000" />
       <workItem from="1718701615843" duration="7862000" />
       <workItem from="1718774950042" duration="20815000" />
-      <workItem from="1718849151629" duration="4828000" />
+      <workItem from="1718849151629" duration="8184000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -598,14 +591,29 @@
       <option name="project" value="LOCAL" />
       <updated>1718803255402</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="feat:微信公众号登录验证码逻辑">
+      <option name="closed" value="true" />
+      <created>1718868279988</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1718868279988</updated>
+    </task>
+    <task id="LOCAL-00041" summary="feat:微信公众号登录验证码逻辑">
+      <option name="closed" value="true" />
+      <created>1718870448675</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1718870448675</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:新增题目接口测试" />
     <MESSAGE value="feat:全局空值处理" />
     <MESSAGE value="feat:查询题目详情实现" />
     <MESSAGE value="feat:配置SQL拦截器实现SQL语句自动翻译" />
@@ -630,18 +638,8 @@
     <MESSAGE value="feat:角色权限模块开发" />
     <MESSAGE value="feat:网关与auth微服务缓存打通" />
     <MESSAGE value="feat:微信公众号消息事件监听，策略模式实现" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:微信公众号消息事件监听，策略模式实现" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/StpInterfaceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat:微信公众号登录验证码逻辑" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:微信公众号登录验证码逻辑" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

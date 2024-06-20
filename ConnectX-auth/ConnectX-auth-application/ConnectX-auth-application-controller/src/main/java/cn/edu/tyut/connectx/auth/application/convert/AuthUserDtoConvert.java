@@ -17,4 +17,12 @@ public interface AuthUserDtoConvert {
      * @return 返回的Bo
      */
     AuthUserBo convertAuthUserDtoToAuthUserBo(AuthUserDto authUserDto);
+
+    /**
+     * bo to dto
+     *
+     * @param authUserBo bo
+     * @return dto
+     */
+    AuthUserDto convertAuthUserBoToAuthUserDto(AuthUserBo authUserBo);
 }

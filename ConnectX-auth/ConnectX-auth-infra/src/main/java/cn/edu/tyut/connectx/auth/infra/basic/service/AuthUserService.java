@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.auth.infra.basic.service;
 
 import cn.edu.tyut.connectx.auth.infra.basic.entity.AuthUser;
 
+import java.util.List;
+
 /**
  * 用户表(AuthUser)表服务接口
  *
@@ -41,4 +43,12 @@ public interface AuthUserService {
      * @return 是否成功
      */
     boolean deleteById(Long id);
+
+    /**
+     * 根据条件查询数据
+     *
+     * @param authUser 用户的条件
+     * @return 查询出的数据
+     */
+    List<AuthUser> queryByCondition(AuthUser authUser);
 }

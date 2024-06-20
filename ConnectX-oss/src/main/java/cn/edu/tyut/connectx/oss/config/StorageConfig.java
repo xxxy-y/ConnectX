@@ -23,9 +23,11 @@ public class StorageConfig {
     @Bean
     @RefreshScope
     public StorageAdapter storageService() {
-        if ("minio".equals(type)) {
+        String minio = "minio";
+        String aliyun = "aliyun";
+        if (minio.equals(type)) {
             return new MinioStorageAdapter();
-        } else if ("aliyun".equals(type)) {
+        } else if (aliyun.equals(type)) {
             return new AliStorageAdapter();
         } else {
             throw new IllegalArgumentException("未找到对应的文件储存处理器");

@@ -79,6 +79,52 @@ public class UserController {
     }
 
     /**
+     * 获取用户信息
+     *
+     * @param authUserDto 用户信息
+     * @return 回显用户信息
+     */
+    @PostMapping("getUserInfo")
+    public Result<Object> getUserInfo(@RequestBody AuthUserDto authUserDto) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("auth.user.getUserInfo.authUserDto:{}", JSON.toJSONString(authUserDto));
+            }
+            Preconditions.checkArgument(!StringUtils.isBlank(authUserDto.getUserName()),
+                    "用户名不能为空");
+            AuthUserBo authUserBo = authUserDtoConvert.convertAuthUserDtoToAuthUserBo(authUserDto);
+            AuthUserBo userInfo = authUserDomainService.getUserInfo(authUserBo);
+            return Result.ok(authUserDtoConvert.convertAuthUserBoToAuthUserDto(userInfo));
+        } catch (Exception e) {
+            log.error("auth.user.getUserInfo.authUserDto.error: {}", authUserDto);
+            return Result.fail("更新用户信息失败");
+        }
+    }
+
+    /**
+     * 退出登录
+     *
+     * @param userName 用户的openid
+     * @return 返回是否退出登录成功
+     */
+    @PostMapping("logout")
+    public Result<Object> logout(@RequestParam("username") String userName) {
+        try {
+            // 这里不使用判断日志级别的if判断主要是因为没有对象序列化的操作
+            // 之前为了节省性能，会先判断日志级别，再进行对象序列化，能节省性能
+            // 这里不需要对象序列化，也就不需要判断日志级别的if判断
+            log.info("auth.user.logout.username:{}", userName);
+            Preconditions.checkArgument(!StringUtils.isBlank(userName),
+                    "用户名不能为空");
+            StpUtil.logout(userName);
+            return Result.ok();
+        } catch (Exception e) {
+            log.error("auth.user.logout.username.error: {}", userName);
+            return Result.fail("退出登录失败");
+        }
+    }
+
+    /**
      * 删除用户
      *
      * @param authUserDto 用户信息

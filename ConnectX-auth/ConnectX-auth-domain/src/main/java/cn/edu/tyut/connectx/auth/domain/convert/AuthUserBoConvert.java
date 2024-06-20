@@ -17,4 +17,11 @@ public interface AuthUserBoConvert {
      * @return 返回entity
      */
     AuthUser convertAuthUserBoToAuthUser(AuthUserBo authUserBo);
+
+    /**
+     * entity to bo
+     * @param authUser 用户实体信息
+     * @return bo
+     */
+    AuthUserBo convertAuthUserToAuthUserBo(AuthUser authUser);
 }
