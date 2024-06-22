@@ -53,8 +53,17 @@ public interface SubjectCategoryService {
 
     /**
      * 删除分类（修改其中的is_delete）
+     *
      * @param subjectCategory 需要修改的数据
      * @return 删除是否成功
      */
     Boolean delete(SubjectCategory subjectCategory);
+
+    /**
+     * 查询该分类下的题目数量
+     *
+     * @param id 分类id
+     * @return 返回题目数量
+     */
+    Integer querySubjectCount(Long id);
 }

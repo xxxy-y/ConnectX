@@ -50,5 +50,4 @@ public class AliStorageAdapter implements StorageAdapter {
     public String getUrl(String bucketName, String objectName) {
         return "";
     }
-
 }

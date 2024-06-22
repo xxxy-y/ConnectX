@@ -81,4 +81,9 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
     public Boolean delete(SubjectCategory subjectCategory) {
         return subjectCategoryDao.update(subjectCategory) > 0;
     }
+
+    @Override
+    public Integer querySubjectCount(Long id) {
+        return this.subjectCategoryDao.querySubjectCount(id);
+    }
 }
