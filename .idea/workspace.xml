@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:上传头像">
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:分类标签性能优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/AliStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/AliStorageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectCategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/controller/SubjectCategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDtoConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/convert/SubjectCategoryDtoConvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectCategoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-application/ConnectX-subject-application-controller/src/main/java/cn/edu/tyut/connectx/subject/application/dto/SubjectCategoryDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectCategoryBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/entity/SubjectCategoryBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectCategoryDomainService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/SubjectCategoryDomainService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-domain/src/main/java/cn/edu/tyut/connectx/subject/domain/service/impl/SubjectCategoryDomainServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectCategoryDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/mapper/SubjectCategoryDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectCategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/SubjectCategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectCategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/java/cn/edu/tyut/connectx/subject/infra/basic/service/impl/SubjectCategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectCategoryDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-subject/ConnectX-subject-infra/src/main/resources/mapper/SubjectCategoryDao.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.2354049&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.31954023&quot;,
     &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -208,9 +206,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Spring Boot.WxApplication" />
         <item itemvalue="Spring Boot.SubjectApplication" />
-        <item itemvalue="Spring Boot.OssApplication" />
         <item itemvalue="Spring Boot.GatewayApplication" />
       </list>
     </recent_temporary>
@@ -288,7 +286,9 @@
       <workItem from="1718701615843" duration="7862000" />
       <workItem from="1718774950042" duration="20815000" />
       <workItem from="1718849151629" duration="17011000" />
-      <workItem from="1719053319745" duration="733000" />
+      <workItem from="1719053319745" duration="1049000" />
+      <workItem from="1719054654037" duration="6890000" />
+      <workItem from="1719113213728" duration="629000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -634,14 +634,21 @@
       <option name="project" value="LOCAL" />
       <updated>1718886089752</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="feat:分类题目数量更新">
+      <option name="closed" value="true" />
+      <created>1719054229387</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1719054229387</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:配置SQL拦截器实现SQL语句自动翻译" />
     <MESSAGE value="feat:jenkins实现项目自动打包部署" />
     <MESSAGE value="fix:不规范名称修改" />
     <MESSAGE value="feat:minio oss模块开发，适配器模式改造" />
@@ -666,7 +673,8 @@
     <MESSAGE value="feat:微信公众号登录验证码逻辑" />
     <MESSAGE value="feat:重复注册、个人信息查询和用户退出实现" />
     <MESSAGE value="feat:上传头像" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:上传头像" />
+    <MESSAGE value="feat:分类题目数量更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:分类题目数量更新" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

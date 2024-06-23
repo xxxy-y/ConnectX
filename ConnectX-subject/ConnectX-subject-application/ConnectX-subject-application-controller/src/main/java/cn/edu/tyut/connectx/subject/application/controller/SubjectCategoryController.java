@@ -1,7 +1,9 @@
 package cn.edu.tyut.connectx.subject.application.controller;
 
 import cn.edu.tyut.connectx.subject.application.convert.SubjectCategoryDtoConvert;
+import cn.edu.tyut.connectx.subject.application.convert.SubjectLabelDtoConvert;
 import cn.edu.tyut.connectx.subject.application.dto.SubjectCategoryDTO;
+import cn.edu.tyut.connectx.subject.application.dto.SubjectLabelDTO;
 import cn.edu.tyut.connectx.subject.common.entity.Result;
 import cn.edu.tyut.connectx.subject.domain.entity.SubjectCategoryBO;
 import cn.edu.tyut.connectx.subject.domain.service.SubjectCategoryDomainService;
@@ -13,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -25,6 +28,12 @@ import java.util.List;
 public class SubjectCategoryController {
     private SubjectCategoryDomainService subjectCategoryDomainService;
     private SubjectCategoryDtoConvert subjectCategoryDtoConvert;
+    private SubjectLabelDtoConvert subjectLabelDtoConvert;
+
+    @Autowired
+    public void setSubjectLabelDtoConvert(SubjectLabelDtoConvert subjectLabelDtoConvert) {
+        this.subjectLabelDtoConvert = subjectLabelDtoConvert;
+    }
 
     @Autowired
     public void setSubjectCategoryDtoConvert(SubjectCategoryDtoConvert subjectCategoryDtoConvert) {
@@ -68,6 +77,12 @@ public class SubjectCategoryController {
         }
     }
 
+    /**
+     * 查询大类下的分类
+     *
+     * @param subjectCategoryDTO 查询参数
+     * @return 返回查询结果
+     */
     @PostMapping("/queryCategoryByPrimary")
     public @NotNull Result<List<SubjectCategoryDTO>> queryCategoryByPrimary(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
         try {
@@ -126,6 +141,36 @@ public class SubjectCategoryController {
         } catch (Exception e) {
             log.error("subjectCategoryController.delete.error: {}", e.getMessage());
             return Result.fail(false);
+        }
+    }
+
+    /**
+     * 一次性查询分类及标签
+     *
+     * @param subjectCategoryDTO 传来的分类及标签信息
+     * @return 返回查询到的信息
+     */
+    @PostMapping("/queryCategoryAndLabel")
+    public @NotNull Result<List<SubjectCategoryDTO>> queryCategoryAndLabel(@RequestBody SubjectCategoryDTO subjectCategoryDTO) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("SubjectCategoryController.queryCategoryAndLabel.subjectCategoryDTO:{}", JSON.toJSONString(subjectCategoryDTO));
+            }
+            // 前端只传一个大的分类id，根据这个大的分类id查询出该分类下的题目数量
+            Preconditions.checkNotNull(subjectCategoryDTO.getId(), "分类ID不能为空");
+            SubjectCategoryBO subjectCategoryBO = subjectCategoryDtoConvert.convertSubjectCategoryDtoToSubjectCategoryBo(subjectCategoryDTO);
+            List<SubjectCategoryBO> subjectCategoryBOList = subjectCategoryDomainService.queryCategoryAndLabel(subjectCategoryBO);
+            List<SubjectCategoryDTO> subjectCategoryDTOList = new LinkedList<>();
+            subjectCategoryBOList.forEach(bo -> {
+                SubjectCategoryDTO categoryDTO = subjectCategoryDtoConvert.convertSubjectCategoryBoToSubjectCategoryDto(bo);
+                List<SubjectLabelDTO> labelDTOList = subjectLabelDtoConvert.convertSubjectLabelBoListToSubjectLabelDtoList(bo.getLabelBoList());
+                categoryDTO.setLabelDTOList(labelDTOList);
+                subjectCategoryDTOList.add(categoryDTO);
+            });
+            return Result.ok(subjectCategoryDTOList);
+        } catch (Exception e) {
+            log.error("subjectCategoryController.queryCategoryAndLabel.error: {}", e.getMessage());
+            return Result.fail();
         }
     }
 }

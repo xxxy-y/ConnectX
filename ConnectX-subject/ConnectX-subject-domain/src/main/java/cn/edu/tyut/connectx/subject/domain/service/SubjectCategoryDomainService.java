@@ -39,4 +39,12 @@ public interface SubjectCategoryDomainService {
      * @return 是否删除成功
      */
     Boolean delete(SubjectCategoryBO subjectCategoryBO);
+
+    /**
+     * 根据大的分类id，查询出该分类下的题目数量
+     *
+     * @param subjectCategoryBO 该分类下的题目数量
+     * @return 返回查询到的题目
+     */
+    List<SubjectCategoryBO> queryCategoryAndLabel(SubjectCategoryBO subjectCategoryBO);
 }

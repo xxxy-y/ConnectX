@@ -27,4 +27,12 @@ public interface SubjectCategoryDtoConvert {
      * @return 转换后的BO对象
      */
     SubjectCategoryBO convertSubjectCategoryDtoToSubjectCategoryBo(SubjectCategoryDTO subjectCategoryDTO);
+
+    /**
+     * 将Bo转换为Dto
+     *
+     * @param subjectCategoryBO bo
+     * @return dto
+     */
+    SubjectCategoryDTO convertSubjectCategoryBoToSubjectCategoryDto(SubjectCategoryBO subjectCategoryBO);
 }
