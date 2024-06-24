@@ -14,67 +14,64 @@ public interface StorageAdapter {
     /**
      * 创建桶
      *
-     * @param bucketName 桶名称
-     * @return Boolean 是否成功创建桶
+     * @param bucket 桶名称
      */
-    Boolean createBucket(String bucketName);
-
-    /**
-     * 删除桶
-     *
-     * @param bucketName 桶名称
-     * @return Boolean 是否删除成功
-     */
-    Boolean deleteBucket(String bucketName);
+    void createBucket(String bucket);
 
     /**
      * 上传文件
      *
-     * @param multipartFile 上传文件
-     * @param bucketName    桶名称
-     * @param objectName    文件名称
-     * @return Boolean 是否成功上传文件
+     * @param uploadFile 上传文件
+     * @param bucket     桶名称
+     * @param objectName 桶中文件夹名称
      */
-    Boolean uploadFile(MultipartFile multipartFile, String bucketName, String objectName);
+    void uploadFile(MultipartFile uploadFile, String bucket, String objectName);
 
     /**
-     * 下载文件
+     * 获取所有桶
      *
-     * @param bucketName 桶名称
-     * @param objectName 文件名称
-     * @return 下载流
-     */
-    InputStream downloadFile(String bucketName, String objectName);
-
-    /**
-     * 列出所有桶，返回的是名称
-     *
-     * @return 返回列出的名称
+     * @return 返回所有桶
      */
     List<String> getAllBucket();
 
     /**
-     * 列出当前桶的所有文件名称
+     * 获取当前桶中的所有文件信息
      *
-     * @param bucketName 桶名称
-     * @return 返回桶中的文件名称
+     * @param bucket 桶名称
+     * @return 返回当前桶中的所有文件信息
      */
-    List<FileInfo> getAllObject(String bucketName);
+    List<FileInfo> getAllFile(String bucket);
+
+    /**
+     * 下载文件
+     *
+     * @param bucket     桶名称
+     * @param objectName 文件夹名称
+     * @return 返回流
+     */
+    InputStream downLoad(String bucket, String objectName);
+
+    /**
+     * 删除桶
+     *
+     * @param bucket 桶名称
+     */
+    void deleteBucket(String bucket);
 
     /**
      * 删除文件
      *
-     * @param bucketName 桶名称
-     * @param objectName 文件名称
+     * @param bucket     桶名称
+     * @param objectName 文件夹名称
      */
-    void deleteObject(String bucketName, String objectName);
+    void deleteObject(String bucket, String objectName);
 
     /**
-     * 获取文件的url
+     * 拼接url
      *
-     * @param bucketName 桶的名称
-     * @param objectName 文件名称
-     * @return 返回对应文件的url
+     * @param bucket     桶名称
+     * @param objectName 文件夹名称
+     * @return 返回url
      */
-    String getUrl(String bucketName, String objectName);
+    String getUrl(String bucket, String objectName);
 }

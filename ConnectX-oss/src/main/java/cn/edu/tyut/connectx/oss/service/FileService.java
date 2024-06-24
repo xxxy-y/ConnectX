@@ -1,6 +1,7 @@
 package cn.edu.tyut.connectx.oss.service;
 
 import cn.edu.tyut.connectx.oss.adapter.StorageAdapter;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,16 +31,18 @@ public class FileService {
     }
 
     /**
-     * 上传文件
-     *
-     * @param multipartFile 上传文件
-     * @param bucketName    桶名称
-     * @param objectName    文件名称
-     * @return Boolean 是否成功上传文件
+     * 获取文件路径
      */
-    public String uploadFile(MultipartFile multipartFile, String bucketName, String objectName) {
-        storageAdapter.uploadFile(multipartFile, bucketName, objectName);
-        objectName = objectName + "/" + multipartFile.getOriginalFilename();
+    public String getUrl(String bucketName, String objectName) {
         return storageAdapter.getUrl(bucketName, objectName);
+    }
+
+    /**
+     * 上传文件
+     */
+    public String uploadFile(@NotNull MultipartFile uploadFile, String bucket, String objectName) {
+        storageAdapter.uploadFile(uploadFile, bucket, objectName);
+        objectName = objectName + "/" + uploadFile.getOriginalFilename();
+        return storageAdapter.getUrl(bucket, objectName);
     }
 }

@@ -23,31 +23,19 @@ public class MinioStorageAdapter implements StorageAdapter {
 
     @Override
     @SneakyThrows
-    public Boolean createBucket(String bucketName) {
-        return minioUtil.createBucket(bucketName);
+    public void createBucket(String bucket) {
+        minioUtil.createBucket(bucket);
     }
 
     @Override
     @SneakyThrows
-    public Boolean deleteBucket(String bucketName) {
-        return minioUtil.deleteBucket(bucketName);
-    }
-
-    @Override
-    @SneakyThrows
-    public Boolean uploadFile(MultipartFile multipartFile, String bucketName, String objectName) {
-        minioUtil.createBucket(bucketName);
+    public void uploadFile(MultipartFile uploadFile, String bucket, String objectName) {
+        minioUtil.createBucket(bucket);
         if (objectName != null) {
-            return minioUtil.updateFile(multipartFile.getInputStream(), bucketName, objectName + "/" + multipartFile.getName());
+            minioUtil.uploadFile(uploadFile.getInputStream(), bucket, objectName + "/" + uploadFile.getOriginalFilename());
         } else {
-            return minioUtil.updateFile(multipartFile.getInputStream(), bucketName, multipartFile.getName());
+            minioUtil.uploadFile(uploadFile.getInputStream(), bucket, uploadFile.getOriginalFilename());
         }
-    }
-
-    @Override
-    @SneakyThrows
-    public InputStream downloadFile(String bucketName, String objectName) {
-        return minioUtil.downloadFile(bucketName, objectName);
     }
 
     @Override
@@ -58,19 +46,32 @@ public class MinioStorageAdapter implements StorageAdapter {
 
     @Override
     @SneakyThrows
-    public List<FileInfo> getAllObject(String bucketName) {
-        return minioUtil.getAllObject(bucketName);
+    public List<FileInfo> getAllFile(String bucket) {
+        return minioUtil.getAllFile(bucket);
     }
 
     @Override
     @SneakyThrows
-    public void deleteObject(String bucketName, String objectName) {
-        minioUtil.deleteObject(bucketName, objectName);
+    public InputStream downLoad(String bucket, String objectName) {
+        return minioUtil.downLoad(bucket, objectName);
+    }
+
+    @Override
+    @SneakyThrows
+    public void deleteBucket(String bucket) {
+        minioUtil.deleteBucket(bucket);
+    }
+
+    @Override
+    @SneakyThrows
+    public void deleteObject(String bucket, String objectName) {
+        minioUtil.deleteObject(bucket, objectName);
     }
 
     @Override
     @SneakyThrows
     public String getUrl(String bucket, String objectName) {
         return url + "/" + bucket + "/" + objectName;
+        // return minioUtil.getPreviewFileUrl(bucket, objectName);
     }
 }
