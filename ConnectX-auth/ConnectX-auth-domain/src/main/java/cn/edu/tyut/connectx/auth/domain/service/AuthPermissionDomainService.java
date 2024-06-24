@@ -2,6 +2,8 @@ package cn.edu.tyut.connectx.auth.domain.service;
 
 import cn.edu.tyut.connectx.auth.domain.entity.AuthPermissionBo;
 
+import java.util.List;
+
 /**
  * @Author 吴庆涛
  * @DATE 2024/6/17
@@ -30,4 +32,12 @@ public interface AuthPermissionDomainService {
      * @return 结果
      */
     Boolean delete(AuthPermissionBo authPermissionBo);
+
+    /**
+     * 查询用户权限
+     *
+     * @param userName 用户名称
+     * @return 返回查询到的用户权限
+     */
+    List<String> getPermission(String userName);
 }

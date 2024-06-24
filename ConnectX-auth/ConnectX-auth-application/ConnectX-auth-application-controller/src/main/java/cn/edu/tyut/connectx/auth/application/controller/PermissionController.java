@@ -99,4 +99,22 @@ public class PermissionController {
             return Result.fail("删除权限失败");
         }
     }
+
+    /**
+     * 查询用户权限
+     *
+     * @param userName 用户ID
+     * @return 返回查询到的权限信息
+     */
+    @PostMapping("getPermission")
+    public Result<Object> getPermission(String userName) {
+        try {
+            log.info("auth.PermissionController.getPermission.userName:{}", userName);
+            Preconditions.checkArgument(!StringUtils.isBlank(userName), "用户ID不能为空");
+            return Result.ok(authPermissionDomainService.getPermission(userName));
+        } catch (Exception e) {
+            log.error("auth.PermissionController.getPermission.userName.error: {}", userName);
+            return Result.fail("获取用户权限失败");
+        }
+    }
 }
