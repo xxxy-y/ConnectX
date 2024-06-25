@@ -1,6 +1,7 @@
 package cn.edu.tyut.connectx.oss.service;
 
 import cn.edu.tyut.connectx.oss.adapter.StorageAdapter;
+import cn.edu.tyut.connectx.oss.entity.FileInfo;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,14 @@ public class FileService {
         storageAdapter.uploadFile(uploadFile, bucket, objectName);
         objectName = objectName + "/" + uploadFile.getOriginalFilename();
         return storageAdapter.getUrl(bucket, objectName);
+    }
+
+    /**
+     * 获取桶下的所有文件
+     *
+     * @param bucket 桶名称
+     */
+    public List<FileInfo> getAllFiles(String bucket) {
+        return storageAdapter.getAllFile(bucket);
     }
 }

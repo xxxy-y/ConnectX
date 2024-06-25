@@ -2,6 +2,7 @@ package cn.edu.tyut.connectx.auth.application.controller;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.dev33.satoken.util.SaResult;
 import cn.edu.tyut.connectx.auth.application.convert.AuthUserDtoConvert;
 import cn.edu.tyut.connectx.auth.application.dto.AuthUserDto;
 import cn.edu.tyut.connectx.auth.common.entity.Result;
@@ -189,10 +190,26 @@ public class UserController {
     }
 
     /**
-     * 查询登录状态，浏览器访问： <a href="http://localhost:8081/user/isLogin">...</a>
+     * 查询登录状态，浏览器访问： <a href="http://localhost:5000/auth/user/isLogin">...</a>
      */
     @RequestMapping("isLogin")
     public String isLogin() {
         return "当前会话是否登录：" + StpUtil.isLogin();
+    }
+
+    /**
+     * 测试会话登录接口，生成 sa token
+      */
+    @RequestMapping("testDoLogin")
+    public SaResult doLogin(String name, String pwd) {
+        // 第一步：比对前端提交的账号名称、密码
+        String username = "zhang";
+        String password = "123456";
+        if(username.equals(name) && password.equals(pwd)) {
+            // 第二步：根据账号id，进行登录
+            StpUtil.login(10001);
+            return SaResult.ok("登录成功");
+        }
+        return SaResult.error("登录失败");
     }
 }

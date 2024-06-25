@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:用户权限获取">
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/entity/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/entity/ResultCodeEnum.java" afterDir="false" />
+    <list default="true" id="95965f2f-306b-4e9b-a4ed-6ad5c0a81347" name="Changes" comment="feat:适用minion/mc突破7天限制">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/AliStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/AliStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/MinioStorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/MinioStorageAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/StorageAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/adapter/StorageAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-auth/ConnectX-auth-application/ConnectX-auth-application-controller/src/main/java/cn/edu/tyut/connectx/auth/application/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-gateway/src/main/java/cn/edu/tyut/connectx/gateway/auth/SaTokenConfigure.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/controller/FileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/controller/FileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/service/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/service/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/util/MinioUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConnectX-oss/src/main/java/cn/edu/tyut/connectx/oss/util/MinioUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,7 +289,8 @@
       <workItem from="1719113213728" duration="2435000" />
       <workItem from="1719196379010" duration="1721000" />
       <workItem from="1719198942101" duration="9207000" />
-      <workItem from="1719211284216" duration="4342000" />
+      <workItem from="1719211284216" duration="11620000" />
+      <workItem from="1719297209703" duration="4148000" />
     </task>
     <task id="LOCAL-00001" summary="2024.5.22 19:53 项目骨架的搭建">
       <option name="closed" value="true" />
@@ -664,14 +660,21 @@
       <option name="project" value="LOCAL" />
       <updated>1719198971234</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="feat:适用minion/mc突破7天限制">
+      <option name="closed" value="true" />
+      <created>1719215890468</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1719215890468</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat:minio oss模块开发，适配器模式改造" />
     <MESSAGE value="feat:nacos实现属性动态切换，但是编译后的类并不会切换。" />
     <MESSAGE value="feat:nacos实现Bean自动加载" />
     <MESSAGE value="feat:标签业务改动" />
@@ -696,7 +699,8 @@
     <MESSAGE value="feat:分类题目数量更新" />
     <MESSAGE value="feat:分类标签性能优化" />
     <MESSAGE value="feat:用户权限获取" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat:用户权限获取" />
+    <MESSAGE value="feat:适用minion/mc突破7天限制" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat:适用minion/mc突破7天限制" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
